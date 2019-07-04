@@ -1,0 +1,56 @@
+/* your custom css */
+a, a:hover, .button {
+    color: #4690df;
+    border-color: #4690df;
+    border-radius: 24px;
+}
+.fixedHeaderContainer a,
+  .navigationSlider .slidingNav ul li a,
+  .slidingNav ul li.siteNavItemActive a {
+    color: #555;
+}
+
+.toc .toggleNav ul li.navListItemActive a,
+    .navigationSlider .slidingNav ul li.siteNavGroupActive a {
+    color: #4690df;
+}
+
+.navigationSlider .slidingNav ul li a:hover,
+  .toc .toggleNav ul li a:hover,
+  .button:hover {
+    color: #4690df;
+}
+
+.fixedHeaderContainer {
+    border-bottom: 1px solid #e8e8e8;
+}
+.navWrapper {
+    border-right: 1px solid #e8e8e8;
+}
+
+.projectTitle {
+    text-align: left;
+    color: #444;
+}
+.promoSection {
+    align-items: flex-start;
+}
+
+.container .wrapper .imageAlignSide p {
+    text-align: left;
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}

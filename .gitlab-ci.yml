@@ -1,0 +1,28 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: circleci/node:8-browsers
+  script:
+    - cd website
+    - yarn
+    - yarn build
+  artifacts:
+    paths:
+      - website/build
+  only:
+    - master
+
+pages:
+  stage: deploy
+  script:
+    - mv website/build/"Minds OSS" public
+  artifacts:
+    paths:
+      - public
+  dependencies:
+    - build
+  only:
+    - master

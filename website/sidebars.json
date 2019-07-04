@@ -1,0 +1,21 @@
+{
+  "docs": {
+    "Getting Started": [
+      "getting-started/introduction",
+      "getting-started/installation"
+    ],
+    "Guides": [
+      "guides/architecture",
+      "guides/frontend",
+      "guides/backend",
+      "guides/mobile",
+      "guides/kubenetes",
+      "guides/deployment",
+      "guides/git"
+    ],
+    "Contributing": [
+      "contributing/contributing",
+      "contributing/license"
+    ]
+  }
+}
