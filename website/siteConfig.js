@@ -22,7 +22,7 @@ const users = [
 
 const siteConfig = {
   title: 'Minds OSS', // Title for your website.
-  tagline: 'A website for testing',
+  tagline: 'The Minds Stack',
   url: 'https://docs.minds.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
 
@@ -55,7 +55,7 @@ const siteConfig = {
   /* Colors for website */
   colors: {
     primaryColor: '#FFF',
-    secondaryColor: '#CCC',
+    secondaryColor: '#FFF',
   },
 
   /* Custom fonts for website */
