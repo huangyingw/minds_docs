@@ -1,6 +1,6 @@
 # Minds Docs
 
-View these docs at [https://oss.minds.com/](https://oss.minds.io).
+View these docs at [https://oss.minds.com/](https://oss.minds.com).
 
 These docs were created with [Docusaurus](https://docusaurus.io/).
 
