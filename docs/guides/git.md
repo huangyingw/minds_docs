@@ -9,7 +9,7 @@ title: Git / Gitlab
 
 **Branches** are preferred over forks, as they integrate with the **Review/Sandbox** environments.
 
-Branch names should be no more that **20 characters** long and include the following prefixes:
+Branch names should be no more that **20 characters** long and include one of the following prefixes:
 
 - **fix/** *(also include the issue number)*
 - **chore/** *(also include the issue number)*

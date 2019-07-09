@@ -14,6 +14,8 @@ The source code can be found [here](https://gitlab.com/minds/front).
 ### Development
 `npm run build-dev`
 
+Keep this running while you are editing so your changes will automatically be reflected when you refresh your browser.  Note that this doesn't work for stylesheets - when working with .scss files, you'll need to run `gulp build.sass` in minds/front before you can see those changes. 
+
 ### Production
 
 > Production build can take up 30 minutes to complete
