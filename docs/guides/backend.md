@@ -37,33 +37,54 @@ engine
 
 # Core
 
-## Modules
-
-Modules reside under the `Core` folder and must be registered in `Core\Minds.php`. 
-
-### Abstraction design
+## Abstraction design
 
 Minds follows an abstraction design pattern - by separating complex processes into standalone chunks with singular responsibilities, it's easier to conduct tests and update infrastructure.
+
+## Modules
+
+Modules reside under the `Core` folder and must be registered in `Core\Minds.php`
+
+> TODO explain: we're going to use video chat as an example, define video chat [#creating-a-module]
 
 > TODO add diagram here
 ![Module diagram](/assets/engine-module-diagram.png "Diagram of an example VideoChat module")
 
 
-### Building blocks
+### Module building blocks
 
-#### Essential building blocks of a module:
-* The Model (e.g. `VideoChat.php`) - the characteristics that define a single unit of whatever your module is going to handle.
-  * It might include methods for calculating fields based on the repository response. 
+#### Essential building blocks:
+__**The Model**__ (e.g. `VideoChat.php`)
+  * the characteristics that define a single unit of whatever content your module is going to handle (e.g. a single video chat)
   * you'll want to `use Minds\Traits\MagicAttributes` so you can automatically use get/set/is methods on each of your model's properties 
-  * if you will be using an api endpoint to interact with the front end, include a `public function export() {...}` here so it can be picked up by your controller's `Factory::exportable()` function, (which transforms arrays into an exportable format)
-* `Manager.php` - interfaces with the repository, hydrates the response (if needed)
-* `Repository.php` - interfaces with the database. Should **only ever** be referenced by its Manager
+  * if you'll be using an api endpoint to interact with the front end, include a `public function export() {...}` here so it can be picked up by your controller's `Factory::exportable()` function, (which transforms arrays into an exportable format)
+  * might include methods for calculating fields based on the repository response
+    >TO DO: example calculated field
+
+  
+__**The Manager**__ (`Manager.php`)
+  * interfaces with the repository
+  * hydrate the entities returned in the response here (if needed)
+    * >TODO include example?
+
+
+__**The Repository**__ (`Repository.php`)
+  * interfaces with the database. Should **only ever** be referenced by its Manager
   * `use Minds\Common\Repository\Response`
-* `Provider.php` - defines a function that registers your Manager to make it available for dependency injection
-* `Module.php` - creates an instance of your Provider and calls its `register()` function.  Register your module in `Core\Minds.php`.
+
+
+__**The Provider**__ (`Provider.php`)
+  * defines a function that registers your Manager to make it available for dependency 
+  injection
+
+
+__**The Module**__ (`Module.php`)
+  * creates an instance of your Provider and calls its `register()` function. Register your module in `Core\Minds.php`.
+
 
 #### Optional building blocks: 
-- Delegates - small, stateless functions that are executed by Managers when something happens that has repurcussions elsewhere in the engine. e.g.:
+__**Delegates**__
+* small, stateless functions that are executed by Managers when something happens that has repurcussions elsewhere in the engine. e.g.:
   - `NotificationsDelegate.php` 
   - `EventsDelegate.php`
 
@@ -203,26 +224,31 @@ class NotificationDelegate
 ### Entities
 
 ### Runners
-`docker-compose up runners`
-Runners are resource intensive, so you may wish to run just one, depending on what you're working on.
+To start all runners: 
+  * `docker-compose up runners`
 
-For example: `docker-compose exec php-fpm php /var/www/Minds/engine/cli.php QueueRunner run --runner=NotificationDispatcher`.
+Runners are resource intensive, so you may wish to run just one, depending on what you're working on. For example:
+  * `docker-compose exec php-fpm php /var/www/Minds/engine/cli.php QueueRunner run --runner=NotificationDispatcher`.
 
 ## Spec tests
-
 Minds uses [phpspec](https://www.phpspec.net/en/stable/) and encourages test-first development. 
 
 Specs are highly abstracted alter-egos of your Manager, Repository and Delegate files that allow you to focus on the bare-bones concepts of what those files will eventually do when they reach their final form (so you can plan effectively before tackling practical technicalities and specifics).
 
-Make sure you include `@package Minds\Core\<<MyModel>>` in `<<MyModel>>.php` so it can be picked up by phpspec.
+Make sure you include `@package Minds\Core\<<VideoChat>>` in `<<VideoChat>>.php` so it can be picked up by phpspec in `<<VideoChatSpec>>.php`.
 
 ### Executing
 
-To run all tests: `bin/phpspec run`
+To run all tests:
+  * `bin/phpspec run`
 
-To run a specific spec file (or folder), add its name: `bin/phpspec run Spec/Core/VideoChats/Repository.php` 
 
-To run a specific test inside of that spec file, add its starting line number: `bin/phpspec run Spec/Core/VideoChats/Repository.php:42` 
+To run a specific spec file (or folder), add its name:
+  * `bin/phpspec run Spec/Core/VideoChats/Repository.php` 
+
+
+To run a specific test inside of that spec file, add its starting line number:
+  * `bin/phpspec run Spec/Core/VideoChats/Repository.php:42` 
 
 # Controllers
 > TODO
