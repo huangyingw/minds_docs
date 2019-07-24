@@ -240,15 +240,109 @@ Make sure you include `@package Minds\Core\<<VideoChat>>` in `<<VideoChat>>.php`
 ### Executing
 
 To run all tests:
-  * `bin/phpspec run`
+```console
+bin/phpspec run
+```
 
 
 To run a specific spec file (or folder), add its name:
-  * `bin/phpspec run Spec/Core/VideoChats/Repository.php` 
+```console 
+bin/phpspec run Spec/Core/VideoChats/Repository.php
+``` 
 
 
 To run a specific test inside of that spec file, add its starting line number:
-  * `bin/phpspec run Spec/Core/VideoChats/Repository.php:42` 
+```console
+  bin/phpspec run Spec/Core/VideoChats/Repository.php:42`
+```
+
+### Verbose output
+Runing this command will give you deep output of the testes
+
+```console
+bin\phpspec run -vvv 
+```
+
+## Writing new tests
+
+### Creating a Spec.php file
+
+Run this command to create a test skeleton in the appropriate place with the default classes imported.
+
+```console
+bin/phpspec run Minds/Your/Namespace/ClassYouWantToSpec
+```
+
+This will create a folder in *minds/engine/
+
+### Mock everything
+
+There's a lot going on under the hood in the modules, some of them have low level connectivity to the data stores. If you don't own the object, mock it. Prophesy makes it really easy
+
+Phpspec provides easy ways to create mocks.
+
+Inside your unit test, be sure to import the class you want to mock.
+
+### Mocking at the test class level
+
+Phpspec provides a *let* function that gets run before each test. If you provide a typed parameter, it will be mocked to the matching namespace.
+
+
+
+```php
+use PhpSpec\ObjectBehavior;
+use Minds\Entities\Entity;
+
+class ManagerSpec extends ObjectBehavior {
+    protected $entity;
+
+    let(Entity $entity) {
+        //Store a reference to the mock for reuse.
+        $this->entity = $entity    
+    }
+}
+```
+
+### Mocking at the test function level
+
+Phpspec will provide mocks via function parameters in your test
+
+```php
+use PhpSpec\ObjectBehavior;
+use Minds\Entities\Entity;
+
+class ManagerSpec extends ObjectBehavior {
+
+    public function it_should_run_test(Entity $entity) {
+        
+    }
+}
+```
+
+### Setting Expectations
+
+These mockable objects can then configured to simulate what will happen with special functions available on the mock.
+
+ShouldBeCalled will set the expectation that mocked method should be called with a parameter.
+```php
+    $entity->setGuid(123)->shouldBeCalled();
+```
+
+willReturn simulates the response of a mocked method
+```php
+    $entity->setGuid(123)->willReturn($entity);
+```
+
+### Getting to the underlying object
+
+Sometimes, php will choke on the reflection of these mocked objects (especially when constructing other objects). 
+
+```php
+    //This will instantiate an object and still be mockable.
+    $mockedObject->getList()->willReturn([]);
+    $service = new ServiceThatNeedsDependencies($mockedObject->getWrappedObject());
+```
+
 
 # Controllers
 > TODO

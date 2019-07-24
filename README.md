@@ -8,6 +8,8 @@ These docs were created with [Docusaurus](https://docusaurus.io/).
 
 1. Make sure all the dependencies for the website are installed:
 
+In oss-website\website
+
 ```sh
 # Install dependencies
 $ yarn
