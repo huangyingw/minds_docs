@@ -5,84 +5,104 @@ title: Installation
 
 ## Repositories
 
-Minds is split into multiple repositories:
+The [Minds repository](https://gitlab.com/Minds/minds) contains multiple git submodule repositories:
 
-- [Engine](https://github.com/Minds/engine) - Backend code & APIs
-- [Front](https://github.com/Minds/front) - Client side Angular2 web app
-- [Sockets](https://github.com/Minds/sockets) - WebSocket server for real-time communication
-- [Mobile](https://github.com/Minds/mobile-native) - React Native mobile apps
+- [Engine](https://gitlab.com/Minds/engine) - Backend code & APIs
+- [Front](https://gitlab.com/Minds/front) - Client side Angular2 web app
+- [Sockets](https://gitlab.com/Minds/sockets) - WebSocket server for real-time communication
+- [Mobile](https://gitlab.com/Minds/mobile-native) - React Native mobile apps
 
+## Development system requirements
 
-## Development System Requirements
-
-- > 10GB RAM (be sure to set it in your docker settings)
-- > 100GB Disk space
 - [Docker Compose](https://docs.docker.com/compose/)
+- 10GB RAM (also set this in _Docker > Settings > Advanced_ tab)
+- 100GB Disk space
 
 ## Development Installation
 
-### Setting up elasticsearch
+### Build the Elasticsearch indexes
 
-> **Linux users:**
-> To get ElasticSearch 6 to run, you must make a settings change on the host machine.
-> - Run ```sudo sysctl -w vm.max_map_count=262144```
-> - To make it permanent, modify the variable in `/etc/sysctl.conf`
+```
+# Make sure nothing is running
+docker-compose down
 
-#### Build the elasticsearch indexes
+# Run the legacy provisioner
+docker-compose up elasticsearch-legacy-provisioner
 
-1. Make sure nothing is running: `docker-compose down`
-2. Run the legacy provisioner: `docker-compose up elasticsearch-legacy-provisioner`
-3. Run the legacy provisioner: `docker-compose up elasticsearch-provisioner`
+# Run the provisioner
+docker-compose up elasticsearch-provisioner
+```
 
-### Running the stack the first time
+_**Linux users:** To get Elasticsearch 6 to run, you must make a settings change on the host machine:_
+
+- _Run `sudo sysctl -w vm.max_map_count=262144`_
+- _To make it permanent, modify the variable in `/etc/sysctl.conf`_
+
+### Running the stack for the first time
 
 1. Run `sh init.sh` in order to install the front and engine repositories
 2. Run `docker-compose up -d nginx`
-3. Run `docker-compose up installer` (one time only.. initial username: minds / password: Pa$$w0rd)
-4. Run `docker-compose up front-build` 
-5. Navigate to `http://localhost:8080`
+3. Run `docker-compose up installer` (one time only... initial username: minds / password: Pa\$\$w0rd)
+4. Run `docker-compose up front-build`
+5. Navigate to [http://localhost:8080](http://localhost:8080)
 
 ## Troubleshooting
 
 ### Minds is already installed
 
-- Ensure engine/settings.php does not exist and re-run `docker-compose up installer`
+- Ensure **engine/settings.php** does not exist and re-run `docker-compose up installer`
 
 ### Cassandra will not boot
-  - Ensure thrift is enabled
-  - Cassandra requires at least 4GB of memory to operate. You can start Cassandra manually by running `docker-compose up cassandra`
+
+- Ensure thrift is enabled
+- Cassandra requires at least 4GB of memory to operate. You can start Cassandra manually by running `docker-compose up cassandra`
+
+### Docker is frozen
+
+- You might need to increase the resources allotted to Docker. To do this, go to _Docker > Preferences > Advanced_. From there, move the CPU/Memory sliders up and see if that fixes the problem
 
 ### Nuclear Option
 
-With dockerized enviroments, it's sometimes best to start from scratch. If you want to delete your data, these steps will completely **delete** your data. You will be starting fresh.
+When things aren't running smoothly in your Dockerized enviroment, sometimes it's best to start from scratch. Follow these steps to **completely delete your data** and start fresh:
 
 ```
-  #Remove your settings file
-  rm engine/settings.php 
-  
-  #Stop your stack
-  docker-compose down
+#Remove your settings file
+rm engine/settings.php
 
-  #Delete your data cache
-  rm -rf .data
+#Stop your stack
+docker-compose down
 
-  #Purge all volumes
-  docker volume prune
+#Delete your data cache
+rm -rf .data
 
-  ```
-
-  That will remove all of your locally cached data. You can either rebuild the containers manually by using ```docker-compose up --build``` or delete everything to start fresh.
-
-```
-  # Delete all containers
-  docker rm $(docker ps -a -q)
-
+#Purge all volumes
+docker volume prune
 ```
 
-## Production System Requirements
+After you've deleted your data, you can either rebuild the containers manually by using `docker-compose up --build` or delete them:
+
+```
+# Delete all containers
+docker rm $(docker ps -a -q)
+```
+
+## Production system requirements
 
 At this time it is not advisable to run Minds in production, however it is possible so long as you are aware of the risks.
 
 - 3 Cassandra Nodes (Min 30gb RAM, 1TB SSD, 8 CPU)
 - 1 ElasticSearch Node (Min 16GB RAM, 250GB SSD, 8 CPU) #2 nodes are recommended for failover
 - 1 Docker Machine (Min 60gb RAM, 50GB SSD, 32 CPU)
+
+## Working in the development environment
+
+Configure your settings in `settings.php`
+
+To make your test user an admin:
+Make sure you are in development mode in `settings.php`:
+
+```php
+$CONFIG->set('development_mode', true);
+```
+
+And set your test user entity's `isAdmin` flag to true.

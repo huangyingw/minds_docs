@@ -31,13 +31,25 @@
         "title": "Frontend"
       },
       "guides/git": {
-        "title": "Git / Gitlab"
-      },
-      "guides/kubernetes": {
-        "title": "Kubernetes"
+        "title": "Git / GitLab"
       },
       "guides/mobile": {
         "title": "Mobile"
+      },
+      "walk-throughs/cookies": {
+        "title": "Cookies"
+      },
+      "walk-throughs/emails": {
+        "title": "Sending emails"
+      },
+      "walk-throughs/feature-flags": {
+        "title": "Feature flags"
+      },
+      "walk-throughs/infinite-scroll": {
+        "title": "Infinite scroll"
+      },
+      "walk-throughs/notifications": {
+        "title": "Notifications"
       }
     },
     "links": {
@@ -48,7 +60,8 @@
     "categories": {
       "Getting Started": "Getting Started",
       "Guides": "Guides",
-      "Contributing": "Contributing"
+      "Contributing": "Contributing",
+      "Walk-throughs": "Walk-throughs"
     }
   },
   "pages-strings": {

@@ -3,45 +3,38 @@ id: contributing
 title: Contributing
 ---
 
-You can contribute to Minds with [Gitlab](https://gitlab.com/minds). Please follow the instructions below.
+## Working with Minds in GitLab
 
-## Creating an issue
+The [Git/GitLab documentation](guides/git.md) explains our team workflow process and labelling guidelines. Make sure you follow these guidelines before submitting an issue or merge request.
 
-### Feature or Bug?
+## Submitting a merge request (MR)
 
-As a rule of thumb, log as a feature request if it does not already exist in the system and log as a bug if something has gone wrong in the system.
+We welcome community contributions to our open-source code repositories. By signing a contributor license agreement (CLA), we ensure that the community is free to use your contributions.
 
-### Logging a Bug
+Before submitting an MR, make sure you have:
 
-For all bugs, it is important that you use the bug template when creating an issue and fill it out with as much information as possible. Try not to leave anything missing, especially platform details, and steps to reproduce - else we may have trouble replicating the issue on our end.
+1. Reviewed the [AGPLv3 license](contributing/license.md)
+2. Signed the <a href="https://na3.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=e9c0907f-7056-403e-9972-0caad4ced5b6&env=na3-eu1&v=2"> Contributor License Agreement (CLA)</a>
 
-### Logging a feature request
+## Submitting an issue
 
-For feature requests, until we have a template in place, you should simply try your best to be as descriptive as possible. If its a visual feature, we welcome mock-ups and even rough sketches in notebooks if they help illustrate your idea.
+In most cases, issues submitted by the community will either be bugs or feature requests, submitted [here](https://gitlab.com/groups/minds/-/issues). If you have the required permissions, you can apply labels to a bug or feature yourself. If not, tag a [member of staff](https://gitlab.com/groups/minds/-/group_members) in a comment on the issue page (or post in the [Help & Support](https://www.minds.com/groups/profile/100000000000000681/feed) group) and we will take care of it as soon as possible.
 
-### Bug Life Cycle
+- log a **bug** when something has gone wrong in the system. Before you log a bug, search through existing issues to make sure it hasn't already been reported. Use the bug template provided in GitLab and fill it out with as much information as possible - especially platform details and steps to reproduce. The more information we have, the more likely we will be able to replicate the problem and find a way to fix it.
 
-Bugs generally start off in the bug triage system. The bug triage system allows us to identify and properly document incoming bugs. This means that when they are escalated from (T - Triage) to (T - Bug) label, they should contain the information necessary for a developer to complete the task.
+- log a **feature request** to suggest we add something that doesn't already exist on the site. Be as descriptive as possible. We welcome mock-ups and even rough sketches in notebooks if they help illustrate your idea.
 
-### Labelling
-If you have the required permissions, you can label a bug or feature yourself. If this is not possible, please tag a member of staff and we will tag it for you as quickly as possible. If your entry has fallen between the cracks, please post in Help and Support and we will take care of it as soon as we possibly can.
+## Earn token rewards for contributing
 
-## Priorities
+Developers who find bugs or contribute code or documentation may qualify for Minds token rewards. All developer contributions will first be reviewed by the Minds staff to determine if they qualify for a reward.
 
-| Label |       |
-| ----- | ----- |
-| **`Priority::0 - Urgent`** | These issues will be assigned to the currently running sprint and resolved as soon possible. |
-| **`Priority::1 - High`** | To be assigned to the closest appropriate sprint or epic. |
-| **`Priority::2 - Normal`** | To be allocated an epic where possible |
-| **`Priority::3 - Nice to have`** | a low priority task or issue, potentially good for the community to tackle. |
-| **`Priority::4 - Trivial`** | Generally for bugs or minor changes. |
+## Ways to contribute
 
-## Progress
+Looking for a project to get started? Check out:
 
-| Label |       |
-| ----- | ----- |
-| **`Status::InProgress`** | |
-| **`Status::Review`** | awaiting peer review before being made live. |
-| **`Status::Follow Up`** | additional information or conversations are needed before progress can be made. |
+> TODO: Add a couple bounties so it's not empty? Why is i18n link broken?
 
-## Submitting your Merge Request (MR)
+- [Bounties](https://gitlab.com/groups/minds/-/issues?label_name%5B%5D=Bounty)
+- [Community tasks](https://gitlab.com/groups/minds/-/issues?label_name%5B%5D=T+-+Community)
+- [Nice to have](https://gitlab.com/groups/minds/-/issues?scope=all&utf8=%E2%9C%93&state=opened&label_name[]=Priority%3A%3A3%20-%20Nice%20to%20have)
+- [Localization/translations](https://poeditor.com/join/project/A45VLCwD0Y)

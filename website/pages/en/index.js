@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const React = require('react');
+const React = require("react");
 
-const CompLibrary = require('../../core/CompLibrary.js');
+const CompLibrary = require("../../core/CompLibrary.js");
 
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const Container = CompLibrary.Container;
@@ -15,10 +15,10 @@ const GridBlock = CompLibrary.GridBlock;
 
 class HomeSplash extends React.Component {
   render() {
-    const {siteConfig, language = ''} = this.props;
-    const {baseUrl, docsUrl} = siteConfig;
-    const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-    const langPart = `${language ? `${language}/` : ''}`;
+    const { siteConfig, language = "" } = this.props;
+    const { baseUrl, docsUrl } = siteConfig;
+    const docsPart = `${docsUrl ? `${docsUrl}/` : ""}`;
+    const langPart = `${language ? `${language}/` : ""}`;
     const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
     const SplashContainer = props => (
@@ -60,12 +60,14 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
+        {/* <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} /> */}
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
             <Button href="https://gitlab.com/minds">View the code</Button>
-            <Button href="docs/getting-started/introduction">Read the Docs</Button>
+            <Button href="docs/getting-started/introduction">
+              Read the Docs
+            </Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -75,14 +77,15 @@ class HomeSplash extends React.Component {
 
 class Index extends React.Component {
   render() {
-    const {config: siteConfig, language = ''} = this.props;
-    const {baseUrl} = siteConfig;
+    const { config: siteConfig, language = "" } = this.props;
+    const { baseUrl } = siteConfig;
 
     const Block = props => (
       <Container
-        padding={['bottom', 'top']}
+        padding={["bottom", "top"]}
         id={props.id}
-        background={props.background}>
+        background={props.background}
+      >
         <GridBlock
           align="center"
           contents={props.children}
@@ -96,13 +99,13 @@ class Index extends React.Component {
         {[
           {
             content:
-              'Kubernetes & Docker keep everyone on the same page ' +
-              'and allow for seamless scalability, along with high performance NoSQL ' +
-              'databases; Cassandra & ElasticSearch.',
+              "Kubernetes & Docker keep everyone on the same page " +
+              "and allow for seamless scalability, along with high performance NoSQL " +
+              "databases, Cassandra & ElasticSearch.",
             image: `${baseUrl}img/undraw_code_review.svg`,
-            imageAlign: 'left',
-            title: 'A modern stack, designed to scale.',
-          },
+            imageAlign: "left",
+            title: "A modern stack, designed to scale."
+          }
         ]}
       </Block>
     );
@@ -111,12 +114,13 @@ class Index extends React.Component {
       <Block background="light">
         {[
           {
-            content: 'Newsfeeds, images, videos, groups, blockchain based rewards system' + 
-              ' video chat, notifications and more!',
+            content:
+              "Newsfeeds, images, videos, groups, blockchain based rewards system" +
+              " video chat, notifications and more!",
             image: `${baseUrl}img/undraw_youtube_tutorial.svg`,
-            imageAlign: 'right',
-            title: 'We have a full set of features',
-          },
+            imageAlign: "right",
+            title: "We have a full set of features"
+          }
         ]}
       </Block>
     );

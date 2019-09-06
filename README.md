@@ -8,7 +8,7 @@ These docs were created with [Docusaurus](https://docusaurus.io/).
 
 1. Make sure all the dependencies for the website are installed:
 
-In oss-website\website
+In docs\website
 
 ```sh
 # Install dependencies
@@ -163,4 +163,4 @@ For more information about custom pages, click [here](https://docusaurus.io/docs
 
 # Full Documentation
 
-Full documentation can be found on the [website](https://docusaurus.io/).
+Full documentation can be found on the [docusaurus website](https://docusaurus.io/).

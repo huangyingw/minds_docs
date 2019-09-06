@@ -16,32 +16,33 @@ const users = [
     // if it is not '/', like: '/test-site/img/image.jpg'.
     image: '/img/bulb.svg',
     infoLink: 'https://www.minds.com',
-    pinned: true,
-  },
+    pinned: true
+  }
 ];
 
 const siteConfig = {
-  title: 'Minds OSS', // Title for your website.
+  title: 'Minds Docs', // Title for your website.
   tagline: 'The Minds Stack',
   url: 'https://docs.minds.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
 
   // Used for publishing and more
-  projectName: 'Minds OSS',
+  projectName: 'Minds Docs',
   organizationName: 'Minds',
+  editUrl: 'https://gitlab.com/minds/docs/blob/master/docs/',
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'getting-started/introduction', label: 'Docs'},
+    { doc: 'getting-started/introduction', label: 'Docs' },
     //{doc: 'doc4', label: 'API'},
     {
       label: 'Code',
-      href: "https://gitlab.com/minds",
+      href: 'https://gitlab.com/minds'
     },
     {
       label: 'Minds.com',
-      href: "https://minds.com/",
-    },
+      href: 'https://minds.com/'
+    }
   ],
 
   // If you have users set above, you add it here:
@@ -50,12 +51,12 @@ const siteConfig = {
   /* path to images for header/footer */
   headerIcon: 'img/bulb.svg',
   footerIcon: 'img/bulb.svg',
-  favicon: 'img/bulb.svg',
+  favicon: 'img/bulb.png',
 
   /* Colors for website */
   colors: {
     primaryColor: '#FFF',
-    secondaryColor: '#FFF',
+    secondaryColor: '#FFF'
   },
 
   /* Custom fonts for website */
@@ -77,11 +78,16 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: 'default',
+    theme: 'default'
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: [
+    'https://buttons.github.io/buttons.js',
+    'https://buttons.github.io/buttons.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
+    '/js/code-block-buttons.js'
+  ],
 
   // On page navigation for the current documentation page.
   onPageNav: 'separate',
@@ -96,13 +102,13 @@ const siteConfig = {
   // enableUpdateBy: true,
 
   // Show documentation's last update time.
-  // enableUpdateTime: true,
+  enableUpdateTime: true,
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',
 
-  customDocsPath: './docs',
+  customDocsPath: './docs'
 };
 
 module.exports = siteConfig;
