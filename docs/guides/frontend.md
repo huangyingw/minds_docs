@@ -3,24 +3,29 @@ id: frontend
 title: Frontend
 ---
 
-> This guide assumes that you have already installed your stack as described [here](getting-started/installation.md)
+_This guide assumes that you have already [installed your stack](getting-started/installation.md)_
 
-Minds uses [Angular 8](https://angular.io) for the frontend. Work is currently underway to introduce server side rendering with Angular Universal. 
+Minds uses [Angular 8](https://angular.io) for the frontend. Work is currently underway to introduce server side rendering with Angular Universal.
 
-The source code can be found [here](https://gitlab.com/minds/front). 
+The source code can be found in the [front repository](https://gitlab.com/minds/front).
 
 ## Building
 
 ### Development
-`npm run build-dev`
 
-Keep this running while you are editing so your changes will automatically be reflected when you refresh your browser.  Note that this doesn't work for stylesheets - when working with .scss files, you'll need to run `gulp build.sass` in minds/front before you can see those changes. 
+```console
+npm run build-dev
+```
+
+Keep this running while you are working so your changes will automatically be reflected when you refresh your browser.
+
+Note: this doesn't apply to stylesheet changes - so when you're working with .scss files, you'll need to run `gulp build.sass` before you'll be able to see those changes.
 
 ### Production
 
-> Production build can take up 30 minutes to complete
+_Production build can take up 30 minutes to complete_
 
-```gulp build.sass && sh build/base-locale.sh dist```
+`gulp build.sass && sh build/base-locale.sh dist`
 
 ## Structure
 
@@ -35,28 +40,22 @@ front
     └───modules
 ```
 
-## Component names
+### Common
 
-Minds follows the [BEM](http://getbem.com/naming/) naming conventions for elements and class names, with the `m-` prefix.
+In most cases, new code will be stored inside subject-specific module folders. However, if you are making something that will be used throughout the site, put it in `/common/` so it can be easily accessed from other modules. Some examples of the kind of things that belong in `/common/`:
 
-eg:
-```html
-<m-comments__tree>
-...
-</m-comments__tree>
-```
-```html
-<div class="m-comment__ownerBlock m-comment__ownerBlock--disabled">
-    <div class="m-commentOwnerBlock__name">
-    </div>
-</div>
-```
+- **Directives**: user profile hovercard, tooltips, things related to Material design lite (slider, switch, date time picker), etc.
+- **Pipes**: ... examples ...
+- What else is in here...
 
-## Components
+## Naming conventions
+
+### Component files
 
 Components should have `.ts`, `.html` and `.scss` files with the same names.
 
 Eg:
+
 ```
 my-cool-module
 └───list.component.ts
@@ -64,8 +63,66 @@ my-cool-module
 └───list.component.scss
 ```
 
+### Elements and classes
+
+Minds follows the [BEM](http://getbem.com/naming/) naming conventions for elements and class names, with the `m-` prefix. For example:
+
+```html
+<m-juryDutySession__content>
+  ...
+</m-juryDutySession__content>
+```
+
+```html
+<div class="m-comment__ownerBlock m-comment__ownerBlock--disabled">
+  <div class="m-commentOwnerBlock__name"></div>
+</div>
+```
+
+If you need to add a new class to an older file that has not yet been updated to use BEM conventions, add the new class twice: once with BEM, and again with whatever legacy convention the file is currently using.
+
+## Linting
+
+Minds uses [Prettier](https://prettier.io/) to enforce consistent formatting in frontend code.
+
+Before you push your MR, run `prettier --write "src/**/*.{scss,ts,html}"` (or, if possible, download a Prettier plug-in for your code editor and tell it to automatically format the code on save). Defaults are configured in `.prettierrc`.
+
 ## Spec tests
 
-### Executing
+#### Executing
 
 `ng test`
+
+#### Cypress tests
+
+> TODO: Brian
+
+## Styles
+
+### Themes
+
+A preset color palette and theme maps are defined in [themes.scss](https://gitlab.com/minds/front/blob/master/src/stylesheets/themes.scss). The palette contains a range of greys, blue-greys, accent colors, black, white, etc.
+
+When styling a new component, select colors that are for light theme only. Dark theme inversions will be automatically applied according to the theme map.
+
+#### Usage
+
+_All_ colors should be defined using the `m-theme` mixin:
+
+```scss
+.m-comment__container {
+  @include m-theme() {
+    border: 1px solid themed($m-grey-50);
+    background-color: rgba(themed($m-blue-grey-200), 0.5);
+    box-shadow: 1px 1px 4px rgba(themed($m-black-always), 0.2);
+  }
+  &.m-comment__container--active {
+    font-weight: bold;
+    @include m-theme() {
+      color: themed($m-green);
+    }
+  }
+}
+```
+
+If something is black or white and you want to _not_ change it when the theme is changed (e.g. an overlay modal background should always be black, regardless of theme), use `$m-black-always` or `$m-white-always`.

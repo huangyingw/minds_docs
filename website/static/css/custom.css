@@ -4,6 +4,9 @@ a, a:hover, .button {
     border-color: #4690df;
     border-radius: 24px;
 }
+.button {
+    margin-right: 8px;
+}
 .fixedHeaderContainer a,
   .navigationSlider .slidingNav ul li a,
   .slidingNav ul li.siteNavItemActive a {
@@ -29,16 +32,28 @@ a, a:hover, .button {
 }
 
 .projectTitle {
-    text-align: left;
+    text-align: center;
     color: #444;
 }
 .promoSection {
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    justify-content: center;
 }
 
 .container .wrapper .imageAlignSide p {
     text-align: left;
 }
+
+.onPageNav .toc-headings > li > a.active {
+    color: #4690df;
+}
+
+@media only screen and (min-width: 480px){
+    .projectTitle {
+        font-size: 400%;
+    }
+}
+
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }

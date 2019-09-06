@@ -9,13 +9,15 @@
       "guides/frontend",
       "guides/backend",
       "guides/mobile",
-      "guides/kubenetes",
       "guides/deployment",
       "guides/git"
     ],
-    "Contributing": [
-      "contributing/contributing",
-      "contributing/license"
+    "Contributing": ["contributing/contributing", "contributing/license"],
+    "Walk-throughs": [
+      "walk-throughs/emails",
+      "walk-throughs/feature-flags",
+      "walk-throughs/infinite-scroll",
+      "walk-throughs/notifications"
     ]
   }
 }
