@@ -23,7 +23,7 @@ const users = [
 const siteConfig = {
   title: 'Minds Docs', // Title for your website.
   tagline: 'The Minds Stack',
-  url: 'https://docs.minds.io', // Your website URL
+  url: 'https://developers.minds.com', // Your website URL
   baseUrl: '/', // Base URL for your project */
 
   // Used for publishing and more

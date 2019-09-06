@@ -18,7 +18,7 @@ build:
 pages:
   stage: deploy
   script:
-    - mv website/build/"Minds OSS" public
+    - mv website/build/"Minds Docs" public
   artifacts:
     paths:
       - public
