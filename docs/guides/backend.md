@@ -3,9 +3,9 @@ id: backend
 title: Backend
 ---
 
-_This guide assumes that you have already [installed your stack](getting-started/installation.md)_
+_This guide assumes that you have already [installed your stack](getting-started/installation.md)_.
 
-The source code can be found at the [engine repository](https://gitlab.com/minds/engine).
+The source code can be found at the [Engine repository](https://gitlab.com/minds/engine).
 
 ## Structure
 
@@ -41,7 +41,7 @@ Minds follows an abstraction design pattern - by separating complex processes in
 To illustrate how modules work, we're going to create a VideoChat module that makes use of dependency injection providers.
 
 Our completed module will look something like this:
-![Module diagram](assets/engine-module-diagram.png "Diagram of an example VideoChat module")
+![Module diagram](assets/engine-module-diagram.png 'Diagram of an example VideoChat module')
 [Click to enlarge](assets/engine-module-diagram.png)
 
 ### Module building blocks

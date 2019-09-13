@@ -3,12 +3,14 @@ id: architecture
 title: Architecture
 ---
 
+## Overview
+
 > TODO update this diagram
 
-![Architecture diagram](assets/architecture-diagram.jpg "Diagram of Minds architecture")
+![Architecture diagram](assets/architecture-diagram.jpg 'Diagram of Minds architecture')
 [Click to enlarge](assets/architecture-diagram.jpg)
 
-# Sockets
+## Sockets
 
 Sockets are for live interactions, such as comments, group gathering pulsators, notifications, messenger, and the jury.
 

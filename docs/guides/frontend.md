@@ -3,11 +3,11 @@ id: frontend
 title: Frontend
 ---
 
-_This guide assumes that you have already [installed your stack](getting-started/installation.md)_
+_This guide assumes that you have already [installed your stack](getting-started/installation.md)_.
 
 Minds uses [Angular 8](https://angular.io) for the frontend. Work is currently underway to introduce server side rendering with Angular Universal.
 
-The source code can be found in the [front repository](https://gitlab.com/minds/front).
+The source code can be found in the [Front repository](https://gitlab.com/minds/front).
 
 ## Building
 
@@ -85,17 +85,33 @@ If you need to add a new class to an older file that has not yet been updated to
 
 Minds uses [Prettier](https://prettier.io/) to enforce consistent formatting in frontend code.
 
-Before you push your MR, run `prettier --write "src/**/*.{scss,ts,html}"` (or, if possible, download a Prettier plug-in for your code editor and tell it to automatically format the code on save). Defaults are configured in `.prettierrc`.
+Before you push your MR, run:
+
+```console
+prettier --write "src/**/*.{scss,ts,html}"
+```
+
+(or, if possible, download a Prettier plug-in for your code editor and tell it to automatically format the code on save). Defaults are configured in `.prettierrc`.
 
 ## Spec tests
 
-#### Executing
+### Executing
 
 `ng test`
 
-#### Cypress tests
+### Cypress tests
 
 > TODO: Brian
+
+#### Select with data attributes, not classes
+
+This is Cypress' best practice for finding testable attributes in the DOM, since using HTML selectors to find positions in the DOM is both brittle and flakey. So wherever you see `data-name-of-component`, you'll know it's e2e related.
+
+For example, to add data attributes to our `minds-activity` objects:
+
+```html
+[attr.data-minds-activity-guid]="activity.guid"
+```
 
 ## Styles
 

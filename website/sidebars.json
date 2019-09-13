@@ -10,6 +10,7 @@
       "guides/backend",
       "guides/mobile",
       "guides/deployment",
+      "guides/documentation",
       "guides/git"
     ],
     "Contributing": ["contributing/contributing", "contributing/license"],

@@ -3,25 +3,25 @@ id: deployment
 title: Deployment
 ---
 
-Minds deploys with **[GitLab](https://gitlab.com/minds)**, making use of Docker & Kubernetes.
+Minds deploys with [GitLab](https://gitlab.com/minds), making use of Docker & Kubernetes.
 
-# Docker Containers
+## Docker Containers
 
-## FPM
+### FPM
 
 ```
 docker build -t minds/fpm:latest -f containers/php-fpm/Dockerfile .
 ```
 
-## Runners
+### Runners
 
 ```
 docker build -t minds/runners:latest -f containers/php-runners/Dockerfile .
 ```
 
-# Getting connected to the staging environment
+## Getting connected to the staging environment
 
-## Prerequisties
+### Prerequisties
 
 - Your AWS access keys setup in `settings.php`
   - `AWS_ACCESS_KEY={Your access key provided by Mark}`
@@ -30,7 +30,7 @@ docker build -t minds/runners:latest -f containers/php-runners/Dockerfile .
 - Your AWS user must have access to AWS EKS
 - Helm and Kubernetes installed
 
-## Connecting
+### Connecting
 
 ```console
 aws eks update-kubeconfig --name=sandbox
@@ -44,7 +44,7 @@ Then you should be able to see all available pods with:
 kubectl get pods
 ```
 
-# Review Apps
+## Review Apps
 
 The review apps make use of [Helm](https://helm.sh) and [Kubernetes](https://kubernetes.io/). Our helm charts can be found [here](https://gitlab.com/minds/helm-charts) and you can inspect the review app auto deployment in our [.gitlab-ci.yml file](https://gitlab.com/minds/engine/blob/master/.gitlab-ci.yml#L52).
 
@@ -76,7 +76,7 @@ helm upgrade \
     ./helm-charts/minds
 ```
 
-## Managing review app settings
+### Managing review app settings
 
 When a pod gets deployed, [Helm charts](https://gitlab.com/minds/helm-charts) writes in the values by parsing [configMap.yaml](https://gitlab.com/minds/helm-charts/blob/master/minds/templates/configMap.yaml).
 
@@ -99,7 +99,7 @@ And add the values to the correponding yaml files:
 - [Staging environment defaults](https://gitlab.com/minds/helm-charts/blob/master/minds/values.yaml)
 - [Production values](https://gitlab.com/minds/helm-charts/blob/master/minds/values-production.yaml)
 
-## Why so many values and templating?
+### Why so many values and templating?
 
 Because it enables us to do something really cool, like dynamically override configuration values for your staging environment - useful for turning on your [feature flags](../walk-throughs/feature-flags).
 
@@ -126,7 +126,7 @@ We don't need to specify a set value here because the value doesn't exist. Howev
 
 If you hose anything, you can always re-run the pipeline which will rebuild the pods with the latest configuration in master and start over.
 
-# Interacting with the staging environment
+## Interacting with the staging environment
 
 You can get access to the pods by using **kubectl**. Note, pods are read-only and ephemeral, so you can't go hacking things on the container.
 
@@ -142,6 +142,6 @@ Shell into a pod using the name from `get pods` (read only)
 kubectl exec -it {your.staging.site.subdomain}-{pod.type}-{kubernetes-suffix} sh
 ```
 
-# Production
+## Production
 
 The Minds production environment is deployed directly from the CI flow found [here](https://gitlab.com/minds/engine/blob/master/.gitlab-ci.yml#L97). Minds currently uses Docker/ECS, but plans to move to Kubernetes as soon as possible.

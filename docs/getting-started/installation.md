@@ -3,14 +3,7 @@ id: installation
 title: Installation
 ---
 
-## Repositories
-
-The [Minds repository](https://gitlab.com/Minds/minds) contains multiple git submodule repositories:
-
-- [Engine](https://gitlab.com/Minds/engine) - Backend code & APIs
-- [Front](https://gitlab.com/Minds/front) - Client side Angular2 web app
-- [Sockets](https://gitlab.com/Minds/sockets) - WebSocket server for real-time communication
-- [Mobile](https://gitlab.com/Minds/mobile-native) - React Native mobile apps
+Get started by creating a branch (dev team) or fork (community members) of the [Minds repository](https://gitlab.com/Minds/minds).
 
 ## Development system requirements
 
@@ -18,7 +11,7 @@ The [Minds repository](https://gitlab.com/Minds/minds) contains multiple git sub
 - 10GB RAM (also set this in _Docker > Settings > Advanced_ tab)
 - 100GB Disk space
 
-## Development Installation
+## Development installation
 
 ### Build the Elasticsearch indexes
 
@@ -63,7 +56,7 @@ _**Linux users:** To get Elasticsearch 6 to run, you must make a settings change
 
 ### Nuclear Option
 
-When things aren't running smoothly in your Dockerized enviroment, sometimes it's best to start from scratch. Follow these steps to **completely delete your data** and start fresh:
+When things aren't running smoothly in your Dockerized environment, sometimes it's best to start from scratch. Follow these steps to **completely delete your data** and start fresh:
 
 ```
 #Remove your settings file
@@ -96,10 +89,11 @@ At this time it is not advisable to run Minds in production, however it is possi
 
 ## Working in the development environment
 
-Configure your settings in `settings.php`
+Configure your settings in `settings.php`.
 
-To make your test user an admin:
-Make sure you are in development mode in `settings.php`:
+### Make your test user an admin
+
+Sometimes you need to do things as an admin user. To do this, make sure you are in development mode in `settings.php`:
 
 ```php
 $CONFIG->set('development_mode', true);
