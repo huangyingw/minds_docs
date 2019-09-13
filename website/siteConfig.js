@@ -29,7 +29,7 @@ const siteConfig = {
   // Used for publishing and more
   projectName: 'Minds Docs',
   organizationName: 'Minds',
-  editUrl: 'https://gitlab.com/minds/docs/blob/master/docs/',
+  editUrl: 'https://gitlab.com/minds/docs/edit/master/docs/',
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [

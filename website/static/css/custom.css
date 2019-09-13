@@ -1,60 +1,93 @@
 /* your custom css */
-a, a:hover, .button {
-    color: #4690df;
-    border-color: #4690df;
-    border-radius: 24px;
+.homeContainer {
+  background-color: #021f3d;
+  background-image: url(../img/canyon-hero.jpg);
+  background-size: cover;
+}
+a,
+a:hover {
+  color: #4690df;
+  border-color: #4690df;
+  border-radius: 24px;
 }
 .button {
-    margin-right: 8px;
+  border-radius: 24px;
+  color: #4690df;
+  border-color: #4690df;
+}
+.inner {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.inner .button {
+  border-radius: 24px;
+  color: white;
+  border-color: white;
+  margin: 6px 4px;
+  padding: 12px 20px;
+}
+.inner .button:hover {
+  border-color: #4690df;
+  background-color: #4690df;
+  color: white;
+  text-shadow: none;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .fixedHeaderContainer a,
-  .navigationSlider .slidingNav ul li a,
-  .slidingNav ul li.siteNavItemActive a {
-    color: #555;
+.navigationSlider .slidingNav ul li a,
+.slidingNav ul li.siteNavItemActive a {
+  color: #555;
 }
 
 .toc .toggleNav ul li.navListItemActive a,
-    .navigationSlider .slidingNav ul li.siteNavGroupActive a {
-    color: #4690df;
+.navigationSlider .slidingNav ul li.siteNavGroupActive a {
+  color: #4690df;
 }
 
 .navigationSlider .slidingNav ul li a:hover,
-  .toc .toggleNav ul li a:hover,
-  .button:hover {
-    color: #4690df;
+.toc .toggleNav ul li a:hover,
+.button:hover {
+  color: #4690df;
 }
 
 .fixedHeaderContainer {
-    border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
 }
 .navWrapper {
-    border-right: 1px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
 }
 
 .projectTitle {
-    text-align: center;
-    color: #444;
+  text-align: center;
+  color: white;
 }
 .promoSection {
-    /* align-items: flex-start; */
-    justify-content: center;
+  justify-content: center;
 }
-
 .container .wrapper .imageAlignSide p {
-    text-align: left;
+  text-align: left;
 }
 
 .onPageNav .toc-headings > li > a.active {
-    color: #4690df;
+  color: #4690df;
 }
 
-@media only screen and (min-width: 480px){
-    .projectTitle {
-        font-size: 400%;
-    }
+@media only screen and (min-width: 480px) {
+  .projectTitle {
+    font-size: 400%;
+  }
+  .homeContainer {
+    padding: 24px 0;
+  }
 }
 
-
+@media only screen and (min-width: 735px) {
+  .container.paddingTop {
+    padding-top: 40px;
+  }
+}
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
@@ -62,6 +95,12 @@ a, a:hover, .button {
 }
 
 @media only screen and (max-width: 1023px) {
+  .edit-page-link {
+    display: inline-block;
+  }
+  .docMainWrapper .wrapper {
+    padding-top: 24px;
+  }
 }
 
 @media only screen and (min-width: 1400px) {

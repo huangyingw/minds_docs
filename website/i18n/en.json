@@ -15,7 +15,7 @@
         "title": "Installation"
       },
       "getting-started/introduction": {
-        "title": "Welcome to the Minds Stack",
+        "title": "Welcome to the Minds stack",
         "sidebar_label": "Introduction"
       },
       "guides/architecture": {
@@ -27,6 +27,9 @@
       "guides/deployment": {
         "title": "Deployment"
       },
+      "guides/documentation": {
+        "title": "Documentation"
+      },
       "guides/frontend": {
         "title": "Frontend"
       },
@@ -35,9 +38,6 @@
       },
       "guides/mobile": {
         "title": "Mobile"
-      },
-      "walk-throughs/cookies": {
-        "title": "Cookies"
       },
       "walk-throughs/emails": {
         "title": "Sending emails"

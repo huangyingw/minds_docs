@@ -7,10 +7,9 @@ Minds uses [React Native](https://reactnative.com) to power both the Android and
 
 ## Building
 
-```yarn install```
+`yarn install`
 
-```react-native run-ios or react-native run-android```
-
+`react-native run-ios or react-native run-android`
 
 ## Spec tests
 

@@ -3,7 +3,7 @@ id: git
 title: Git / GitLab
 ---
 
-## GitLab resources
+## Useful GitLab links
 
 - [Minds Group](https://gitlab.com/groups/minds)
 
@@ -11,7 +11,8 @@ title: Git / GitLab
   - [Issues](https://gitlab.com/groups/minds/-/issues) - all of the bite-size tasks that we want to complete
   - [Merge requests](https://gitlab.com/groups/minds/-/merge_requests) - new code that hasn't been merged yet
   - [Sprints](https://gitlab.com/groups/minds/-/milestones) - ongoing two-week periods of continuous development
-  - [Epics](https://gitlab.com/groups/minds/-/epics) - longer-term projects containing issues that share a theme
+  - [Milestones](https://gitlab.com/groups/minds/-/milestones) - product/release-focused blocks of time that make up epics
+  - [Epics](https://gitlab.com/groups/minds/-/epics) - longer-term projects containing milestones that share a theme
   - [Roadmap](https://gitlab.com/groups/minds/-/roadmap) - visualization of epic timelines
 
 - [Minds Repository](https://gitlab.com/minds/minds)
@@ -24,35 +25,113 @@ title: Git / GitLab
 
 For the Minds development team, **branches** are preferred over forks, as they integrate with the **review/sandbox** environments. Community contributors should use forks.
 
-### Branch names
+## Naming branches and commits
 
-Branch names should be no more that **20 characters** long and include the related issue/epic number. For example, **virtual-reality-chats-7049**.
+> When working on an epic that has branches in both front and engine, give both branches identical names so they are associated in your sandbox review app.
 
-If you are working on an epic with branches in both front and engine, give both branches identical names to associate them in the sandbox.
+**Branch names** should be _no more that 20 characters long_ and include the related issue/epic number:
 
-## Issues
+- e.g. `virtual-reality-chats-7049`
 
-Open an issue before creating a branch or merge request. Tag it with relevant [labels](##Labelling) such as `Type`, `Priority`, `Status`, `Squad`, `Product` and `Platform`.
+**Commit messages** should be prefixed with the issue type (e.g. feat, chore, fix, refactor...) in parentheses:
 
-If the issue is part of an epic, associate them by going to the epic page and adding the issue to its issue list.
+- e.g. `(feat): Virtual reality chats`
 
-## Merge requests
+### Labels
 
-> If your merge request requires changes and isn't ready to be merged yet, add **WIP:** to the beginning of its title. Make sure it does not have the **MR::Awaiting Merge** label applied.
+Labels help the team and community by providing additional, filterable information about what's currently being worked on (and by who), what are the priorities, what's going on within each developer squad, activity related to a particular product, etc. Be sure to tag your issue/epic/MR with as many labels as is relevant.
 
-In the description of your MR, ensure that you:
+Different activities have different label requirements. See specific labelling guidelines for [issues](####issue-labels) and [merge requests](####mr-labels) for more information.
+
+See the complete [list of labels](https://gitlab.com/groups/minds/-/labels) in GitLab for comprehensive label descriptions.
+
+## Issues workflow
+
+Open an issue before creating a branch or merge request.
+
+Tag issues with:
+
+- Relevant labels (see [below](####issue-labels))
+- Related epic (if applicable)
+- Related milestone (if applicable)
+- A weight (see [below](####issue-weights))
+- Time tracking (include on the issue page, either in the description or as a comment). Each sprint should add up to 60h (30h per week - this allows for meetings/planning to not interfere with the estimates)
+  - Time estimate, e.g. `/estimate 1d 2h 30m`
+  - Time spent, e.g. `/spend 4h 15m`
+
+### Issue weight
+
+Weights are an indicator of complexity.
+
+- 1 - Trivial
+- 2 - Small
+- 3 - Medium, will take some time and collaboration
+- 4 - Something in between 3 and 5 :)
+- 5 - Large, will take a major portion of the milestone to finish
+
+### Issue labels
+
+Labels should be applied to issues at various stages of the issues workflow:
+
+**_When it's created_**
+
+- [Type::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=type::) ~Feature, ~Bug, ~Chore, ~Refactor, etc.
+- [Product::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=product::) ~Boost, ~Groups, ~Messenger, etc.
+- [Priority::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=priority::) ~0 - Urgent, ~1 - High, ... ~4 - Trivial
+
+**_Once it's assigned to a squad_**
+
+- [Squad::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=squad::) ~Blue, ~Green, ~Yellow
+
+**_Once it's squad decides which sprint to assign it to_**
+
+- [Sprint::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=sprint::) ~10/09 - Pink Panther, ~12/30 - Understood Unicorn, etc.
+
+**_Once a developer starts working on it_**
+
+- [Status::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=status::) ~InProgress, ~Review, ~Follow Up
+
+**_If it's Type::Bug(Triage)_**
+
+- [Triage::](https://gitlab.com/groups/minds/-/labels?utf8=%E2%9C%93&subscribed=&search=triage::) ~Questions, ~Review, ~Unable to replicate (see [bug lifecycle](###bug-lifecycle) for details)
+
+**_If it's Type::Bug_**
+
+- [Platform::](https://gitlab.com/groups/minds/-/labels?utf8=%E2%9C%93&subscribed=&search=platform::) ~Browser, ~Mobile, etc.
+
+**_If it's Type::Regression_**
+
+- [Regression::](https://gitlab.com/groups/minds/-/labels?utf8=%E2%9C%93&subscribed=&search=regression::) ~Canary, ~Production, ~Staging
+
+## Merge request (MR) workflow
+
+> If your merge request requires changes and isn't ready to be merged yet, add **WIP:** to the beginning of its title.
+
+### MR labels
+
+(See [issue labels](####issue-labels) for examples)
+
+- [Type::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=type::)
+- [Product::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=product::)
+- [Squad::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=squad::)
+- [Sprint::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=sprint::)
+- [MR::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=mr::) ~Awaiting Review, ~Ready to Merge, ~Requires Changes
+
+### MR description
+
+Ensure that you:
 
 1. Clearly explain its purpose
 2. Reference the original issue # that the MR closes
 3. Provide guidelines for QA testers
 
-**For example**:
+For example:
 
-_Allows users to chat in virtual reality. Users must select a checkbox in channel settings in order to opt-in. Users must be logged in and subscribed to one another in order to be eligible. Not enabled for group chats._
+_"Allows users to chat in virtual reality. Users must select a checkbox in channel settings in order to opt-in. Users must be logged in and subscribed to one another in order to be eligible. Not enabled for group chats._
 
 _To test, try to start a VR chat with/without a VR headset. Make sure you can't engage in a VR chat unless the settings checkbox is checked._
 
-_Closes issue #7049._
+_Closes issue #7049."_
 
 ### Using the staging environment
 
@@ -62,35 +141,17 @@ Once the pipeline has passed for your MR, you can test it in the staging environ
 
 When an MR is ready to be tested, add a "QA" approval rule and assign at least one approver to conduct testing. Include some testing guidelines in your MR description to point your tester in the right direction.
 
-## Labels
-
-Labels help the community by providing additional, filterable information about what's currently being worked on (and by who), what are the priorities, what's going on within each developer squad, activity related to a particular product, etc.
-
-Be sure to tag your issue/epic/MR with as many labels as is relevant.
-
-See the [list of labels](https://gitlab.com/groups/minds/-/labels) for comprehensive label descriptions.
-
-### Examples
-
-The table below illustrates how different naming conventions and labels apply to different issues and activities. It is not comprehensive and team members and contributors should visit the [list of labels](https://gitlab.com/groups/minds/-/labels) and get familiar with all of the available possibilities.
-
-|                 | _Example_                       | Type              | Product | Squad | Status | Triage | Platform | MR  |
-| --------------- | ------------------------------- | ----------------- | ------- | ----- | ------ | ------ | -------- | --- |
-| Issue (not bug) | _Virtual reality chats_         | feat, chore, etc. | x       | x     | x      |        |          |     |
-| Issue (bug)     | _Glitch in the matrix_          | bug               | x       | x     | x      | x      | x        |     |
-| MR              | _Virtual reality chats_         | any               | x       | x     |        |        | x        | x   |
-| Branch name     | _virtual-reality-chats-7049_    |                   |         |       |        |        |          |     |
-| Commit message  | _(feat): Virtual reality chats_ |                   |         |       |        |        |          |     |
-
-_Note: commit messages should be prefixed with "(type):" (e.g. feat, chore, bug, refactor etc.)_
-
 ## Bug lifecycle
 
 Bugs generally start off in the bug triage system (with a `Type::Bug (Triage)` label), which allows us to identify and properly document incoming bugs. A bug in triage can be in one of three states:
 
-- `Triage::Questions`: the information provided in the issue's bug template was insufficient and a developer is in the process of gathering additional information from the submitting user
+- `Triage::Questions` - the information provided in the issue's bug template was insufficient and a developer is in the process of gathering additional information from the submitting user
 
-- `Triage::Review`: responsibility for the bug has been handed off from the developer in charge of incoming bug reports to a different developer
-- `Triage::Unable to replicate`: we can't reproduce the bug and consequently are unable to resolve it
+- `Triage::Review` - responsibility for the bug has been handed off from the developer in charge of incoming bug reports to a different developer
+- `Triage::Unable to replicate` - we can't reproduce the bug and consequently are unable to resolve it
 
-When the bug is replicable and the issue contains necessary information for a developer to fix it, the bug is taken out of triage by removing the `Type::Bug (Triage)` label and replacing it with `Type::Bug`.
+When the bug is replicable and the issue contains necessary information for a developer to fix it, the bug is taken out of triage by removing the `Type::Bug (Triage)` label and replacing it with either `Type::Bug` or `Type::Regression`. If it's a regression, apply a `Regression::` label so we can identify where things went wrong.
+
+## Epics
+
+Epics will span multiple milestones for a project (#mvp, #review, #release). Avoid using sub epics, as they mess up the roadmap.
