@@ -3,6 +3,8 @@ id: emails
 title: Sending emails
 ---
 
+This guide covers how to dynamically send emails in the Minds backend.
+
 ## Process overview
 
 1. An event occurs (e.g. a new user joins Minds) and dispatches a message to the queue

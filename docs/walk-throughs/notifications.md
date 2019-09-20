@@ -3,6 +3,8 @@ id: notifications
 title: Notifications
 ---
 
+This guide covers how to dynamically send notifications to users when an event occurs.
+
 ## Backend events and settings
 
 Let's say we want to create a notification to send to video chat participants after a chat has completed.
@@ -35,8 +37,6 @@ Also add your `notification_view` to:
 
 - [Notification/Manager.php](https://gitlab.com/minds/engine/blob/master/Core/Notification/Manager.php) to determine which notification category it belongs to (e.g boosts, subscriptions, votes, etc.)
 - [Notification/Extensions/Push.php](https://gitlab.com/minds/engine/blob/master/Core/Notification/Extensions/Push.php)
-
-> TODO: What is Push.php? and should referrals be in there?
 
 ## Frontend template
 

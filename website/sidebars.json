@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting Started": [
+    "Getting started": [
       "getting-started/introduction",
       "getting-started/installation"
     ],
@@ -15,6 +15,9 @@
     ],
     "Contributing": ["contributing/contributing", "contributing/license"],
     "Walk-throughs": [
+      "walk-throughs/backend-modules",
+      "walk-throughs/backend-tests",
+      "walk-throughs/frontend-tests",
       "walk-throughs/emails",
       "walk-throughs/feature-flags",
       "walk-throughs/infinite-scroll",

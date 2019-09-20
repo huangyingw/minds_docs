@@ -3,9 +3,13 @@ id: feature-flags
 title: Feature flags
 ---
 
-Feature flags allow new features to be introduced to a subset of users (i.e. those in Canary mode) before they are available to all users. Start by enabling a feature flag and then wrap a gate around code that you want to be executed for applicable users.
+Feature flags allow new features to be introduced to a subset of users (i.e. those in Canary mode) before they are available to all users.
 
 ## Usage
+
+Start by configuring a feature flag and then wrap a "gate" around code that you want to be executed only for applicable users.
+
+### Configure settings
 
 First, define and enable the flag in `settings.php`:
 
@@ -17,7 +21,7 @@ $CONFIG->set('features', [
 ])
 ```
 
-In the backend:
+### Backend
 
 ```php
 use Minds\Core\Features\Manager as FeaturesManager;
@@ -34,7 +38,9 @@ if ($this->features->has('my-cool-feature')) {
 }
 ```
 
-It works similarly in the frontend. Import `FeaturesService`, add it to the constructor, and:
+### Frontend
+
+Import `FeaturesService`, add it to the constructor, and:
 
 ```ts
 if (this.featuresService.has('my-cool-feature')) {
