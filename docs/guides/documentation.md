@@ -29,7 +29,7 @@ The docs are the SSOT for information about how to configure, use, and troublesh
 
 - If the answer to a question exists in documentation, share the link to the docs instead of rephrasing the information.
 
-- When you encounter new information not available in GitLab’s documentation (for example, when working on a support case or testing a feature), your first step should be to create a merge request to add this information to the docs. You can then share the MR in order to communicate this information.
+- When you encounter new information not available in Minds’s documentation (for example, when working on a support case or testing a feature), your first step should be to create a merge request to add this information to the docs. You can then share or screenshot the MR in order to communicate this information.
 
 ### Link instead of summarize
 
@@ -39,7 +39,7 @@ There is a temptation to summarize the information on another page. This will ca
 
 Use [GitHub flavored markdown](https://help.github.com/en/articles/basic-writing-and-formatting-syntax).
 
-#### Headers
+### Headers
 
 The largest tier of headers should have _two_ hashes, e.g. `## My h1 primary header`. If you use one hash, it won't work with the navigation sidebar.
 
@@ -48,19 +48,9 @@ Only capitalize the _first letter_ of your header, unless it includes a proper n
 - `### My cool subheader with many words`
 - `### My cool Minds subheader that contains a proper noun`
 
-## Adding images
-
-- Add the image file to `docs/assets/`
-- Add a "Click to enlarge" link below images that depict small details/text
-
-```md
-![My cool diagram](assets/my-cool-diagram.png "My cool diagram's alt text")
-[Click to enlarge](assets/my-cool-diagram.png)
-```
-
 ## Editing an existing docs page
 
-Edit by clicking the "edit" button at the top of the docs site page, or by navigating to `docs/` and editing the corresponding document:
+Edit by clicking the "edit" button at the top of the docs site page, or by navigating to `docs/` (or `website/blog`, if it's a blog) and editing the corresponding document:
 
 `docs/doc-to-be-edited.md`
 
@@ -73,24 +63,7 @@ title: This Doc Needs To Be Edited
 Edit me...
 ```
 
-For more information about docs, click [here](https://docusaurus.io/docs/en/navigation)
-
-## Editing an existing blog post
-
-Edit blog posts by clicking the "edit" button at the top of the docs site page, or by navigating to `website/blog` and editing the corresponding post:
-
-`website/blog/post-to-be-edited.md`
-
-```markdown
----
-id: post-needs-edit
-title: This Blog Post Needs To Be Edited
----
-
-Edit me...
-```
-
-For more information about blog posts, click [here](https://docusaurus.io/docs/en/adding-blog)
+Click [here](https://docusaurus.io/docs/en/navigation) for more info on docs, or [here](https://docusaurus.io/docs/en/adding-blog) for blogs.
 
 ## Adding Content
 
@@ -113,7 +86,7 @@ My new content here..
 // Add newly-created-doc to the Getting Started category of docs
 {
   "docs": {
-    "Getting Started": [
+    "Getting started": [
       "quick-start",
       "newly-created-doc" // new doc here
     ],
@@ -123,7 +96,9 @@ My new content here..
 }
 ```
 
-For more information about adding new docs, click [here](https://docusaurus.io/docs/en/navigation)
+Re-run `yarn start` to see the changes in the sidebar.
+
+For more information about adding new docs, click [here](https://docusaurus.io/docs/en/navigation).
 
 ### Adding a new blog post
 
@@ -171,18 +146,18 @@ For more information about blog posts, click [here](https://docusaurus.io/docs/e
     /* you can add custom pages */
     { page: 'help', label: 'Help' },
     /* you can add external links */
-    { href: 'https://github.com/facebook/Docusaurus', label: 'GitHub' },
+    { href: 'https://gitlab.com/minds', label: 'GitLab' },
     ...
   ],
   ...
 }
 ```
 
-For more information about the navigation bar, click [here](https://docusaurus.io/docs/en/navigation)
+For more information about the navigation bar, click [here](https://docusaurus.io/docs/en/navigation).
 
 ### Adding custom pages
 
-1. Docusaurus uses React components to build pages. The components are saved as .js files in `website/pages/en`:
+1. Docusaurus uses React components to build pages. The components are saved as .js files in `website/pages/en`
 1. If you want your page to show up in your navigation header, you will need to update `website/siteConfig.js` to add to the `headerLinks` element:
 
 `website/siteConfig.js`
@@ -200,10 +175,18 @@ For more information about the navigation bar, click [here](https://docusaurus.i
 
 For more information about custom pages, click [here](https://docusaurus.io/docs/en/custom-pages).
 
-## Full docusaurus documentation
+### Adding an image to a docs page
+
+- Add the image file to `docs/assets/`
+- Add a "Click to enlarge" link below images that depict small details/text
+
+```md
+![My cool diagram](assets/my-cool-diagram.png "My cool diagram's alt text")
+[Click to enlarge](assets/my-cool-diagram.png)
+```
+
+## Resources and credits
 
 Full documentation can be found on the [docusaurus website](https://docusaurus.io/).
-
-## Credits
 
 A portion of this guide's content is taken from GitLab's excellent [documentation styleguide](https://git.causal.ch/help/development/documentation/styleguide.md).

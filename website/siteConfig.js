@@ -60,18 +60,14 @@ const siteConfig = {
   },
 
   /* Custom fonts for website */
-  /*
-  fonts: {
-    myFont: [
-      "Times New Roman",
-      "Serif"
-    ],
-    myOtherFont: [
-      "-apple-system",
-      "system-ui"
-    ]
-  },
-  */
+
+  // fonts: {
+  //   myFont: ['Roboto', 'Sans-Serif']
+  //   myOtherFont: [
+  //     "-apple-system",
+  //     "system-ui"
+  //   ]
+  // },
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
   copyright: `Copyright © ${new Date().getFullYear()} Minds Inc.`,
@@ -83,7 +79,6 @@ const siteConfig = {
 
   // Add custom scripts here that would be placed in <script> tags.
   scripts: [
-    'https://buttons.github.io/buttons.js',
     'https://buttons.github.io/buttons.js',
     'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
     '/js/code-block-buttons.js'
@@ -108,7 +103,12 @@ const siteConfig = {
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',
 
-  customDocsPath: './docs'
+  customDocsPath: './docs',
+  algolia: {
+    apiKey: '6e560f4f51933177f40205eac88af5a4',
+    indexName: 'minds',
+    algoliaOptions: {} // Optional, if provided by Algolia
+  }
 };
 
 module.exports = siteConfig;

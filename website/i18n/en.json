@@ -39,11 +39,20 @@
       "guides/mobile": {
         "title": "Mobile"
       },
+      "walk-throughs/backend-modules": {
+        "title": "Backend modules"
+      },
+      "walk-throughs/backend-tests": {
+        "title": "Backend tests"
+      },
       "walk-throughs/emails": {
         "title": "Sending emails"
       },
       "walk-throughs/feature-flags": {
         "title": "Feature flags"
+      },
+      "walk-throughs/frontend-tests": {
+        "title": "Frontend tests"
       },
       "walk-throughs/infinite-scroll": {
         "title": "Infinite scroll"
@@ -58,7 +67,7 @@
       "Minds.com": "Minds.com"
     },
     "categories": {
-      "Getting Started": "Getting Started",
+      "Getting started": "Getting started",
       "Guides": "Guides",
       "Contributing": "Contributing",
       "Walk-throughs": "Walk-throughs"

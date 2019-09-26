@@ -83,7 +83,7 @@ Labels should be applied to issues at various stages of the issues workflow:
 
 - [Squad::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=squad::) ~Blue, ~Green, ~Yellow
 
-**_Once it's squad decides which sprint to assign it to_**
+**_Once its squad decides which sprint to assign it to_**
 
 - [Sprint::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=sprint::) ~10/09 - Pink Panther, ~12/30 - Understood Unicorn, etc.
 
@@ -135,11 +135,11 @@ _Closes issue #7049."_
 
 ### Using the staging environment
 
-Once the pipeline has passed for your MR, you can test it in the staging environment by clicking the "view app" button on the MR page. If there isn't already a "view app" button, click the 4th icon on the pipeline (the row of primarily green checkmarks - the 4th one should be titled "review:"). From the dropdown that appears, select "review:start".
+Once the pipeline has passed for your MR, you can test it in the staging environment by clicking the "view app" button on the MR page. If there isn't already a "view app" button, click the 4th icon on the pipeline (the row of primarily green checkmarks - the 4th one should be titled "review:"). From the dropdown that appears, select "review:start". Wait for the app to build (it may take ~20-30 mins) before you can start using it.
 
 ### QA
 
-When an MR is ready to be tested, add a "QA" approval rule and assign at least one approver to conduct testing. Include some testing guidelines in your MR description to point your tester in the right direction.
+When an MR is ready to be tested by someone else, add a "QA" approval rule and assign at least one approver to conduct testing. Include some testing guidelines in your MR description to point your tester in the right direction.
 
 ## Bug lifecycle
 

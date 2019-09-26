@@ -42,11 +42,11 @@ front
 
 ### Common
 
-In most cases, new code will be stored inside subject-specific module folders. However, if you are making something that will be used throughout the site, put it in `/common/` so it can be easily accessed from other modules. Some examples of the kind of things that belong in `/common/`:
+In most cases, new code will be stored inside subject-specific module folders. However, if you are making something that will be used throughout the site, put it in the `common/` folder so it can be easily accessed from other modules. Some examples of the kind of things that belong in `common/`:
 
 - **Directives**: user profile hovercard, tooltips, things related to Material design lite (slider, switch, date time picker), etc.
-- **Pipes**: ... examples ...
-- What else is in here...
+- **Pipes**: TODO
+- **Services**: TODO
 
 ## Naming conventions
 
@@ -95,23 +95,9 @@ prettier --write "src/**/*.{scss,ts,html}"
 
 ## Spec tests
 
-### Executing
+We test our code to prevent software defects and verify that it behaves as we expect it to.
 
-`ng test`
-
-### Cypress tests
-
-> TODO: Brian
-
-#### Select with data attributes, not classes
-
-This is Cypress' best practice for finding testable attributes in the DOM, since using HTML selectors to find positions in the DOM is both brittle and flakey. So wherever you see `data-name-of-component`, you'll know it's e2e related.
-
-For example, to add data attributes to our `minds-activity` objects:
-
-```html
-[attr.data-minds-activity-guid]="activity.guid"
-```
+> See the [frontend tests walk-through](../walk-throughs/frontend-tests) for information on writing and running tests
 
 ## Styles
 
@@ -141,4 +127,4 @@ _All_ colors should be defined using the `m-theme` mixin:
 }
 ```
 
-If something is black or white and you want to _not_ change it when the theme is changed (e.g. an overlay modal background should always be black, regardless of theme), use `$m-black-always` or `$m-white-always`.
+If something is black or white and you want it to _not_ change when the theme is changed (e.g. you want an overlay modal background to always be black, regardless of theme), use `$m-black-always` or `$m-white-always`.

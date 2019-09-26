@@ -43,9 +43,9 @@ class Footer extends React.Component {
                 this.props.language
               )}
             >
-              Getting Started
+              Getting started
             </a>
-            <a href={this.docUrl('guides/deployment', this.props.language)}>
+            <a href={this.docUrl('guides/architecture', this.props.language)}>
               Guides
             </a>
             <a

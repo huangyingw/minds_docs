@@ -5,7 +5,7 @@ title: Architecture
 
 ## Overview
 
-> TODO update this diagram
+> TODO: update this diagram
 
 ![Architecture diagram](assets/architecture-diagram.jpg 'Diagram of Minds architecture')
 [Click to enlarge](assets/architecture-diagram.jpg)

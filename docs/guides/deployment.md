@@ -9,13 +9,13 @@ Minds deploys with [GitLab](https://gitlab.com/minds), making use of Docker & Ku
 
 ### FPM
 
-```
+```console
 docker build -t minds/fpm:latest -f containers/php-fpm/Dockerfile .
 ```
 
 ### Runners
 
-```
+```console
 docker build -t minds/runners:latest -f containers/php-runners/Dockerfile .
 ```
 
@@ -50,7 +50,7 @@ The review apps make use of [Helm](https://helm.sh) and [Kubernetes](https://kub
 
 A kubernetes environment can be created by running:
 
-```
+```console
 helm upgrade \
     --install \
     --reuse-values \
@@ -84,7 +84,7 @@ To have your values persist across builds, you must extend the settings.php scri
 
 Do not hard code the values in the configMap, reference them via `.Values.key.subkey`:
 
-```
+```console
  // Twillio configuration
     $CONFIG->set('twilio', [
         'account_sid' => '{{ .Values.twilio.sid }}',
