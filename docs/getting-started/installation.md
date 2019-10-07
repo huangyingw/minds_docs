@@ -59,16 +59,16 @@ _**Linux users:** To get Elasticsearch 6 to run, you must make a settings change
 When things aren't running smoothly in your Dockerized environment, sometimes it's best to start from scratch. Follow these steps to **completely delete your data** and start fresh:
 
 ```
-#Remove your settings file
+# Remove your settings file
 rm engine/settings.php
 
-#Stop your stack
+# Stop your stack
 docker-compose down
 
-#Delete your data cache
+# Delete your data cache
 rm -rf .data
 
-#Purge all volumes
+# Purge all volumes
 docker volume prune
 ```
 
