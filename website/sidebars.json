@@ -2,7 +2,8 @@
   "docs": {
     "Getting started": [
       "getting-started/introduction",
-      "getting-started/installation"
+      "getting-started/installation",
+      "getting-started/troubleshooting"
     ],
     "Guides": [
       "guides/architecture",
