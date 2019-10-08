@@ -39,46 +39,6 @@ _**Linux users:** To get Elasticsearch 6 to run, you must make a settings change
 4. Run `docker-compose up front-build`
 5. Navigate to [http://localhost:8080](http://localhost:8080)
 
-## Troubleshooting
-
-### Minds is already installed
-
-- Ensure **engine/settings.php** does not exist and re-run `docker-compose up installer`
-
-### Cassandra will not boot
-
-- Ensure thrift is enabled
-- Cassandra requires at least 4GB of memory to operate. You can start Cassandra manually by running `docker-compose up cassandra`
-
-### Docker is frozen
-
-- You might need to increase the resources allotted to Docker. To do this, go to _Docker > Preferences > Advanced_. From there, move the CPU/Memory sliders up and see if that fixes the problem
-
-### Nuclear Option
-
-When things aren't running smoothly in your Dockerized environment, sometimes it's best to start from scratch. Follow these steps to **completely delete your data** and start fresh:
-
-```
-# Remove your settings file
-rm engine/settings.php
-
-# Stop your stack
-docker-compose down
-
-# Delete your data cache
-rm -rf .data
-
-# Purge all volumes
-docker volume prune
-```
-
-After you've deleted your data, you can either rebuild the containers manually by using `docker-compose up --build` or delete them:
-
-```
-# Delete all containers
-docker rm $(docker ps -a -q)
-```
-
 ## Production system requirements
 
 At this time it is not advisable to run Minds in production, however it is possible so long as you are aware of the risks.
