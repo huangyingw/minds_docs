@@ -8,7 +8,7 @@ Minds is a distributed team located on both sides of the Atlantic. We communicat
 ## Squads
 
 | Squad  | Members                     | Scrum Calls Meeting Times                  |
-|--------|-----------------------------|--------------------------------------------|
+| ------ | --------------------------- | ------------------------------------------ |
 | Blue   | Guy, Olivia, Rami           | Monday + Thursday 5PM UK / 12PM NY         |
 | Green  | Brian, Juan, Martin, Xander | Tuesday + Thursdays 4.30PM UK / 11.30AM NY |
 | Yellow | Ben, Emi, Marcelo           | Tuesday + Thursdays 1.30PM UK / 8.30AM NY  |
@@ -19,11 +19,11 @@ Minds is a distributed team located on both sides of the Atlantic. We communicat
 
 Each squad has a video call twice per week. The squad answers the following questions:
 
-1) What did you yesterday
-2) What are you going to do today
-3) Are there any issues
+1. What did you yesterday
+2. What are you going to do today
+3. Are there any issues
 
-### Asynchronous Scrums 
+### Asynchronous Scrums
 
 On days where the squad does not have a video call scheduled, the scrum will be performed offline and still follow the same 3 question patterns as noted above.
 
@@ -37,7 +37,14 @@ Please visit the [REAMDE.md](https://gitlab.com/minds/qa) on [https://gitlab.com
 
 ## Project management
 
-*This section is still being constructed*.
+_This section is still being constructed_.
+
+### Issues and Epics
+
+The full project management workflow board can be found [here](https://gitlab.com/groups/minds/-/boards/1264761).
+
+[![Architecture diagram](assets/work-flow.png "Diagram of Minds Workflow")
+Click to enlarge](assets/work-flow.png)
 
 ## Work in progress
 
