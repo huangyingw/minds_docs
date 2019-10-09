@@ -23,6 +23,9 @@
       "walk-throughs/feature-flags",
       "walk-throughs/infinite-scroll",
       "walk-throughs/notifications"
+    ],
+    "Handbook": [
+      "handbook/how-we-work"
     ]
   }
 }

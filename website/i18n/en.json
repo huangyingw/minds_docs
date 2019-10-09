@@ -18,6 +18,9 @@
         "title": "Welcome to the Minds stack",
         "sidebar_label": "Introduction"
       },
+      "getting-started/troubleshooting": {
+        "title": "Troubleshooting"
+      },
       "guides/architecture": {
         "title": "Architecture"
       },
@@ -38,6 +41,9 @@
       },
       "guides/mobile": {
         "title": "Mobile"
+      },
+      "handbook/how-we-work": {
+        "title": "How we work"
       },
       "walk-throughs/backend-modules": {
         "title": "Backend modules"
@@ -70,7 +76,8 @@
       "Getting started": "Getting started",
       "Guides": "Guides",
       "Contributing": "Contributing",
-      "Walk-throughs": "Walk-throughs"
+      "Walk-throughs": "Walk-throughs",
+      "Handbook": "Handbook"
     }
   },
   "pages-strings": {
