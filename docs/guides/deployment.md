@@ -145,3 +145,25 @@ kubectl exec -it {your.staging.site.subdomain}-{pod.type}-{kubernetes-suffix} sh
 ## Production
 
 The Minds production environment is deployed directly from the CI flow found [here](https://gitlab.com/minds/engine/blob/master/.gitlab-ci.yml#L97). Minds currently uses Docker/ECS, but plans to move to Kubernetes as soon as possible.
+
+### Getting Access to Read Only Prod Elastic Search
+
+We can access elastic search for querying the feeds and diagnostics and such. You will need to have kubernetes setup and your AWS environment variables set as in the [Getting connected to the staging environment](#getting-connected-to-the-staging-environment) above.
+
+Then you can follow these commands to get connected.
+
+**Run Once**
+aws eks update-kubeconfig --name=io --kubeconfig=~/.kube/config-io --role-arn=arn:aws:iam::324044571751:role/eks-io--com-bridge --alias=io--com-bridge
+
+This exports the kubernetes configuration to your local machine.
+
+**Run when you want to connect**
+```console
+export KUBECONFIG=$HOME/.kube/config-io
+kubectl get pods -n com-bridge
+```
+
+**To get access to ES**
+```console
+kubectl port-forward deployment.apps/es-bridge -n com-bridge 9200:9200
+```
