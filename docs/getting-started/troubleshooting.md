@@ -28,6 +28,15 @@ After you've deleted your data, you can either rebuild the containers manually b
 docker rm $(docker ps -a -q)
 ```
 
+## Localhost will not load
+If localhost fails to load, but localhost/login works fine, then you may need to create the index.php manually. This can be done by entering the project root, starting everything up, and running:
+
+```console
+docker-compose exec php-fpm sh
+cd /var/www/Minds/front/dist
+touch index.php
+```
+
 ## Minds is already installed
 
 - Ensure **engine/settings.php** does not exist and re-run `docker-compose up installer`
