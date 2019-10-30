@@ -90,8 +90,8 @@ const siteConfig = {
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: 'img/undraw_online.svg',
-  twitterImage: 'img/undraw_tweetstorm.svg',
+  ogImage: 'img/canyon-hero.jpg',
+  twitterImage: 'img/canyon-hero.jpg',
 
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
