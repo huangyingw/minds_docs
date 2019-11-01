@@ -24,8 +24,6 @@
       "walk-throughs/infinite-scroll",
       "walk-throughs/notifications"
     ],
-    "Handbook": [
-      "handbook/how-we-work"
-    ]
+    "Handbook": ["handbook/how-we-work", "handbook/superhero"]
   }
 }
