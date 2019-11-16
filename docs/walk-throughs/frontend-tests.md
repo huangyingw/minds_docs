@@ -13,9 +13,9 @@ Minds uses [Cypress](https://www.cypress.io/) for e2e testing and [Jasmine](http
 
 > TODO: Brian
 
-## Cypress best practices:
+## Cypress best practices
 Cypress allows you freedom to do things in many ways, but it is important to understand the best practices, or your tests will likely be brittle.
-I strongly recommend reading [Cypress' Best Practices](https://docs.cypress.io/guides/references/best-practices.html), which is a fantastic resource.
+We strongly recommend reading [Cypress' Best Practices](https://docs.cypress.io/guides/references/best-practices.html), which is a fantastic resource.
 
 
 ### Select with data attributes, not classes
