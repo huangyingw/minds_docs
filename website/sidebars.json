@@ -22,7 +22,8 @@
       "walk-throughs/emails",
       "walk-throughs/feature-flags",
       "walk-throughs/infinite-scroll",
-      "walk-throughs/notifications"
+      "walk-throughs/notifications",
+      "walk-throughs/postman"
     ],
     "Handbook": ["handbook/how-we-work", "handbook/superhero"]
   }
