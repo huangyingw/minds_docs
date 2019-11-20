@@ -101,6 +101,24 @@ We test our code to prevent software defects and verify that it behaves as we ex
 
 ## Styles
 
+### Wildcard selectors
+
+You may wish to use attribute wildcard selectors to select multiple elements that share an attribute value or a portion of a class name in your stylesheets. 
+```html
+<div class='m-myClassname__foo'>Foo!</div>
+<span class='m-myClassname__bar'>Bar!</span>
+```
+
+```scss
+// this selects both of the elements above
+[class*='m-myClassname'] {
+    font-weight: bold;
+}
+```
+
+When using wildcards for class names, make sure you only use the `*=` selector (which matches any part of the string) and do not use `^=` or `$=` (which select the beginning and end of strings, respectively), as this can cause problems when angular dynamically adds and removes classes.
+
+
 ### Themes
 
 A preset color palette and theme maps are defined in [themes.scss](https://gitlab.com/minds/front/blob/master/src/stylesheets/themes.scss). The palette contains a range of greys, blue-greys, accent colors, black, white, etc.
