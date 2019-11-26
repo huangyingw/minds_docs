@@ -19,18 +19,18 @@ We strongly recommend reading [Cypress' Best Practices](https://docs.cypress.io/
 
 
 ### Select with data attributes, not classes
-This is Cypress' **best practice** for **finding testable attributes in the DOM**, since using HTML selectors to find positions in the DOM is both brittle and flakey. So wherever you see `minds-data-name-of-component`, you'll know it's e2e related.
+This is Cypress' **best practice** for **finding testable attributes in the DOM**, since using HTML selectors to find positions in the DOM is both brittle and flakey. So wherever you see `data-minds`, you'll know it's e2e related.
 
 For example, to add data attributes to our `minds-activity` objects:
 
 ```html
-[attr.data-minds-activity-guid]="activity.guid"
+[attr.data-minds]="'activityGuid--' + activity.guid"
 ```
 
 This can then be called like so:
 
 ```javascript
-  const activity = '[data-minds-activity-guid]';
+  const activity = '[data-minds=activityGuid--998750271110176768]';
   cy.get(activity);
 ```
 
