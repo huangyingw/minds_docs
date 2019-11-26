@@ -1,6 +1,6 @@
 ---
 id: postman
-title: Postman Collection
+title: Postman collection
 ---
 
 ### Getting set up
