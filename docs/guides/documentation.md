@@ -7,10 +7,11 @@ The source code for this site can be found at the [Docs and Developer Site repos
 
 ## Get started in 5 minutes
 
-1. Make sure all the dependencies for the website are installed. In `docs/website/`:
+1. Make sure all the dependencies for the website are installed. In `website/`:
 
 ```sh
 # Install dependencies
+$ cd website
 $ yarn
 ```
 
