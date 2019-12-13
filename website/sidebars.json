@@ -23,7 +23,8 @@
       "walk-throughs/feature-flags",
       "walk-throughs/infinite-scroll",
       "walk-throughs/notifications",
-      "walk-throughs/postman"
+      "walk-throughs/postman",
+      "walk-throughs/mobile-locales"
     ],
     "Handbook": ["handbook/how-we-work", "handbook/superhero"]
   }
