@@ -45,6 +45,9 @@
       "handbook/how-we-work": {
         "title": "How we work"
       },
+      "handbook/superhero": {
+        "title": "Superhero"
+      },
       "walk-throughs/backend-modules": {
         "title": "Backend modules"
       },
@@ -63,8 +66,14 @@
       "walk-throughs/infinite-scroll": {
         "title": "Infinite scroll"
       },
+      "walk-throughs/mobile-locales": {
+        "title": "Mobile Internationalization"
+      },
       "walk-throughs/notifications": {
         "title": "Notifications"
+      },
+      "walk-throughs/postman": {
+        "title": "Postman collection"
       }
     },
     "links": {
