@@ -60,6 +60,9 @@
       "walk-throughs/feature-flags": {
         "title": "Feature flags"
       },
+      "walk-throughs/feed-algorithms": {
+        "title": "Feed Algorithms"
+      },
       "walk-throughs/frontend-tests": {
         "title": "Frontend tests"
       },
