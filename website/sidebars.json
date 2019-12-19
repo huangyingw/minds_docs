@@ -21,6 +21,7 @@
       "walk-throughs/frontend-tests",
       "walk-throughs/emails",
       "walk-throughs/feature-flags",
+      "walk-throughs/feed-algorithms",
       "walk-throughs/infinite-scroll",
       "walk-throughs/notifications",
       "walk-throughs/postman",
