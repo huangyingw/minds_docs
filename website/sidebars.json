@@ -25,7 +25,8 @@
       "walk-throughs/infinite-scroll",
       "walk-throughs/notifications",
       "walk-throughs/postman",
-      "walk-throughs/mobile-locales"
+      "walk-throughs/mobile-locales",
+      "walk-throughs/mobile-gitflow"
     ],
     "Handbook": [
       "handbook/how-we-work",
