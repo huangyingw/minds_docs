@@ -21,7 +21,7 @@ This guide covers our branching model and the CI flow integrated with it.
 ![Module diagram](assets/gitflow-mobile.jpg 'Workflow')
 [Click to enlarge](assets/gitflow-mobile.jpg)
 
-## Continuos Integration
+## Continuous integration
 
 Android (Gitlab CI):
 
