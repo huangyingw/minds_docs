@@ -100,6 +100,24 @@ cypress/e2e.sh -h http://my-sandbox.minds.io -p [Password]
 
 From there, you can hit Run All, and watch Cypress run against your host.
 
+
+### Test Stretching & Flake Prevention
+
+Before commiting tests, ideally you should stretch your tests to make sure that they are durable enough to withstand the pipelines.
+To save you from having to manually re-run a test 100 times to do this, you can simply use:
+
+```javascript
+Cypress._.times(100, (i) => {
+    it('should do foo', () => {
+    
+    });
+
+    it('should do bar', () => {
+    
+    });
+});
+```
+
 # Running Jasmine/Karma Tests
 To run Jasmine/Karma tests:
 
