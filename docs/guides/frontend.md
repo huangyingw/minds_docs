@@ -5,7 +5,7 @@ title: Frontend
 
 _This guide assumes that you have already [installed your stack](getting-started/installation.md)_.
 
-Minds uses [Angular 8](https://angular.io) for the frontend. Work is currently underway to introduce server side rendering with Angular Universal.
+Minds uses [Angular 8](https://angular.io) for the frontend, with support for Server Side Rendering.
 
 The source code can be found in the [Front repository](https://gitlab.com/minds/front).
 
@@ -14,18 +14,22 @@ The source code can be found in the [Front repository](https://gitlab.com/minds/
 ### Development
 
 ```console
-npm run build-dev
+npm run server:dev
 ```
 
 Keep this running while you are working so your changes will automatically be reflected when you refresh your browser.
 
-Note: this doesn't apply to stylesheet changes - so when you're working with .scss files, you'll need to run `gulp build.sass` before you'll be able to see those changes.
+Note: this doesn't apply to stylesheet changes - so when you're working with .scss files, you'll need to run `npm run prebuild` before you'll be able to see those changes.
+
+_Development mode will run without SSR enabled_
 
 ### Production
 
 _Production build can take up 30 minutes to complete_
 
-`gulp build.sass && sh build/base-locale.sh dist`
+The production environment uses Server Side Rendering. See the [SSR](#SSR) section below to see best practices.
+
+`npm run build:ssr`
 
 ## Structure
 
@@ -103,21 +107,21 @@ We test our code to prevent software defects and verify that it behaves as we ex
 
 ### Wildcard selectors
 
-You may wish to use attribute wildcard selectors to select multiple elements that share an attribute value or a portion of a class name in your stylesheets. 
+You may wish to use attribute wildcard selectors to select multiple elements that share an attribute value or a portion of a class name in your stylesheets.
+
 ```html
-<div class='m-myClassname__foo'>Foo!</div>
-<span class='m-myClassname__bar'>Bar!</span>
+<div class="m-myClassname__foo">Foo!</div>
+<span class="m-myClassname__bar">Bar!</span>
 ```
 
 ```scss
 // this selects both of the elements above
-[class*='m-myClassname'] {
-    font-weight: bold;
+[class*="m-myClassname"] {
+  font-weight: bold;
 }
 ```
 
 When using wildcards for class names, make sure you only use the `*=` selector (which matches any part of the string) and do not use `^=` or `$=` (which select the beginning and end of strings, respectively), as this can cause problems when angular dynamically adds and removes classes.
-
 
 ### Themes
 
@@ -146,3 +150,75 @@ _All_ colors should be defined using the `m-theme` mixin:
 ```
 
 If something is black or white and you want it to _not_ change when the theme is changed (e.g. you want an overlay modal background to always be black, regardless of theme), use `$m-black-always` or `$m-white-always`.
+
+## SSR
+
+### 101 Guide
+
+#### Bypassing on the server side
+
+```ts
+import { Inject, PLATFORM_ID } from '@angular/core';}
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+
+...
+constructor(
+  @Inject(PLATFORM_ID) protected platformId: Object,
+) {}
+
+ngOnInit() {
+  if (isPlatformBrowser(this.platformId)) {
+    // only executed on the browser side
+  }
+  if (isPlatformServer(this.platformId)) {
+    // only executed on the server side
+  }
+}
+
+```
+
+```html
+<ng-container *mIfBrowser>
+  Load me only on the browser
+</ng-container>
+```
+
+#### The browser will rehydrate when loaded
+
+Even though the server renders the current page, everything is reloaded once the browser is initialized. This should be a mostly blind process and not noticable, however it should be noted that all functions that were called on the server side will be executed again on the browser side.
+
+For example, `ngOnInit` will be run on the server side request and again on the browser side too. Multiple data requests can be avoided by making use of the transfer state tools, which are automatically handled via Angulars HTTP services.
+
+#### Don't use timers on the server side
+
+Timer functions such as `setTimeout`, `setInterval` and RXJS tools like `timer` should be avoided on the server side as they need to resolve before the server will fully render. These functions should be wrapped in `isPlatformBrowser` wrappers (see above).
+
+#### Don't use the window or document variables
+
+The server has no concept of the DOM, so only Angulars available interfaces should be used. `window.` is never acceptable. `window.Minds` has been removed and replaced with the `ConfigsService` service.
+
+#### Getting a configuration variable
+
+```ts
+import { ConfigsService } from './common/services/configs.service';
+
+...
+readonly siteUrl: string;
+constructor(configs: ConfigsService) {
+  this.siteUrl = configs.get('site_url');
+}
+```
+
+#### GET requests are transferred to the browser
+
+`client.get()` calls will be transferred to the browser to prevent duplicate calls to endpoints.
+
+#### Only load server side what we need
+
+Just because we can render server side, doesn't mean everything needs to be. We should target to render the minimum amount of data possible and aim for the lowest possible page latency achievable.
+
+For example, do not render comments for blogs server side, allow for the browser to do this asynchronously.
+
+#### Local storage vs Cookies
+
+The server is not able to read the local storage from the browser. If a shared state is required then the `CookieService` should be used. Sensitive data is prohibited.
