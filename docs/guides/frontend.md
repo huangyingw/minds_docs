@@ -27,7 +27,7 @@ _Development mode will run without SSR enabled_
 
 _Production build can take up 30 minutes to complete_
 
-The production environment uses Server Side Rendering. See the [SSR](#SSR) section below to see best practices.
+The production environment uses Server Side Rendering. See the [SSR](#ssr) section below to see best practices.
 
 `npm run build:ssr`
 
