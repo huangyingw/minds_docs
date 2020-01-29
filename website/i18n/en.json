@@ -51,6 +51,9 @@
       "handbook/superhero": {
         "title": "Superhero"
       },
+      "pro/domains": {
+        "title": "Domains"
+      },
       "walk-throughs/backend-modules": {
         "title": "Backend modules"
       },
@@ -95,7 +98,8 @@
       "Guides": "Guides",
       "Contributing": "Contributing",
       "Walk-throughs": "Walk-throughs",
-      "Handbook": "Handbook"
+      "Handbook": "Handbook",
+      "Pro": "Pro"
     }
   },
   "pages-strings": {

@@ -32,6 +32,7 @@
       "handbook/how-we-work",
       "handbook/bug-reporting",
       "handbook/superhero"
-    ]
+    ],
+    "Pro": ["pro/domains"]
   }
 }
