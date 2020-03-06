@@ -24,7 +24,7 @@ docker build -t minds/runners:latest -f containers/php-runners/Dockerfile .
 ### Prerequisties
 
 - Your AWS access keys setup in `settings.php`
-  - `AWS_ACCESS_KEY={Your access key provided by Mark}`
+  - `AWS_ACCESS_KEY_ID={Your access key provided by Mark}`
   - `AWS_SECRET_ACCESS_KEY={Your secret access key provided by Mark}`
   - `AWS_DEFAULT_REGION=us-east-1`
 - Your AWS user must have access to AWS EKS
