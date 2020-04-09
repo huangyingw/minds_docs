@@ -7,7 +7,7 @@ title: Postman collection
 
 Firstly, you need to download [Postman](https://www.getpostman.com/downloads/), and log in with your account.
 
-### Enviroment preperation
+### Enviroment preparation
 
 We use a few enviromental variables to allow us to share endpoints. These can be specified by heading over to the settings cog in the right of postman, and then hitting add. The variables you need and instructions on how to obtain them can be found here:
 
