@@ -21,23 +21,33 @@ You can also use/extend optional [EmailStyles.php](https://gitlab.com/minds/engi
 
 ### Testing
 
-See email-related [CLI controllers](https://gitlab.com/minds/engine/blob/master/Controllers/Cli/Email.php) for tools related to testing and building.
-
-To actually send and test, add your own SMTP server to `settings.php`:
+To actually send and test, add your own gmail SMTP server to `settings.php`:
 
 ```php
 $CONFIG->set('email', [
   'smtp' => [
     'host' => 'smtp.gmail.com',
-    'username' => 'my username',
-    'password' => 'my password',
+    'username' => 'mygmailaddress@gmail.com',
+    'password' => 'my gmail password',
     'port' => 465
   ]
 ]);
 ```
+Ensure your gmail account is configured to allow emails to send. 2-step verification must be turned OFF. In 'connected apps and sites', turn ON 'allow less secure apps'. Additional info [here](https://www.formget.com/send-email-via-gmail-smtp-server-in-php/).
 
 Make sure runners are running so the queue can be parsed:
 
 ```console
 docker-compose up runners
 ```
+
+See [Email CLI controllers](https://gitlab.com/minds/engine/blob/master/Controllers/Cli/Email.php) for tools related to testing and building.
+For example, to test the WelcomeComplete email, run this in the php-fpm shell:
+```
+php cli.php Email testWelcomeComplete --guid=1095036819759697938 --output=/var/www/Minds/engine/welcome_complete.html --send
+```
+Run this to get additional information about the parameters involved in the test:
+```
+php cli.php Email testWelcomeComplete --help
+```
+
