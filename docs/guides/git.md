@@ -75,9 +75,26 @@ Labels should be applied to issues at various stages of the issues workflow:
 
 **_When it's created_**
 
-- [Type::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=type::) ~Feature, ~Bug, ~Chore, ~Refactor, etc.
-- [Product::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=product::) ~Boost, ~Groups, ~Messenger, etc.
-- [Priority::](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=priority::) ~0 - Urgent, ~1 - High, ... ~4 - Trivial
+| Label                                     | Description                                                                                                            | Required                                 |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| <nobr>`Type::Feature`</nobr>              | A new feature or an improvement to an existing feature                                                                 | Always                                   |
+| <nobr>`Type::Bug`</nobr>                  | A bug exists in a product or feature                                                                                   | Always (must have **Severity::** labels) |
+| <nobr>`Type::Chore`</nobr>                | Small weighted tasks                                                                                                   | Always                                   |
+| <nobr>`Type::Refactor`</nobr>             | An existing feature needs to be re-structured                                                                          | Always                                   |
+| <nobr>`Type::Regression`</nobr>           | A previous working feature has broken.                                                                                 | Always                                   |
+|                                           |                                                                                                                        |                                          |
+| <nobr>`Product::*`</nobr>                 | A label for each product. [See all here](https://gitlab.com/groups/minds/-/labels?utf8=✓&subscribed=&search=product::) | Always                                   |
+|                                           |                                                                                                                        |                                          |
+| <nobr>`Priority::0 - Urgent`</nobr>       | Issue must be started immediately                                                                                      | Always                                   |
+| <nobr>`Priority::1 - High`</nobr>         | Issue to be completed in 30 days                                                                                       | Always                                   |
+| <nobr>`Priority::2 - Normal`</nobr>       | Issue to be completed in 90 days (quarter)                                                                             | Always                                   |
+| <nobr>`Priority::3 - Nice to have`</nobr> | Issue to be completed in 180 days or more                                                                              | Always (never with a `Type::Bug`)        |
+| <nobr>`Priority::4 - Trivial`</nobr>      | No time estimation associated                                                                                          | Always (never with a `Type::Bug`)        |
+|                                           |                                                                                                                        |                                          |
+| <nobr>`Severity::0 - Blocker`</nobr>      | Unusable feature with no workaround, user is blocked <br> Eg. Unable to make a comment                                 | With `Type::Bug` & `Type::Regression`    |
+| <nobr>`Severity::1 - Critical`</nobr>     | Broken Feature, workaround too complex & unacceptable <br> Eg. Token balance chart is not rendering correctly          | With `Type::Bug` & `Type::Regression`    |
+| <nobr>`Severity::2 - Major`</nobr>        | Broken feature with an acceptable workaround <br> Eg. Gathering pulsator not displaying                                | With `Type::Bug` & `Type::Regression`    |
+| <nobr>`Severity::3 - Low`</nobr>          | Functionality inconvenience or cosmetic issue <br> Eg. Font colour is incorrect or a UI element is not aligned         | With `Type::Bug` & `Type::Regression`    |
 
 **_Once it's assigned to a squad_**
 
