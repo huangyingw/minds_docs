@@ -65,6 +65,8 @@ This is used to switch features on production-like environments. Values are appl
 
 Flags can be switched on and off per-environment at https://gitlab.com/minds/infrastructure/feature-flags/-/feature_flags/.
 
+If you're creating a new flag and the functionality is dependant on another feature flag, be sure to mention it in the description.
+
 All GitLab strategies are available. Groups can be referenced using the percent character on the User ID strategy and there can be multiple targets (example: `100000000123, 1000000000999, %canary, %pro`).
 
 *Environment Spec* is matched with the provided `applicationName` value in `settings.php`, fallbacking to `*`.
