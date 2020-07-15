@@ -33,6 +33,6 @@
       "handbook/bug-reporting",
       "handbook/superhero"
     ],
-    "Pro": ["pro/domains"]
+    "Pro": ["pro/domains", "pro/developers"]
   }
 }

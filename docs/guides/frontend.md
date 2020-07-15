@@ -23,6 +23,11 @@ Note: this doesn't apply to stylesheet changes - so when you're working with .sc
 
 _Development mode will run without SSR enabled_
 
+> You can run the frontend end without the backend bloat by running
+>
+> 1. `export NODE_OPTIONS=--max_old_space_size=4096 ENGINE_SECURE=1 ENGINE_HOST=www.minds.com ENGINE_PORT=443`
+> 2. `npm run serve:dev`
+
 ### Production
 
 _Production build can take up 30 minutes to complete_
