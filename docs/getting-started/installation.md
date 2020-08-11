@@ -90,6 +90,18 @@ After saving the profile script, restart your terminal windows.
 - Enable Shared Drives availability to the drive that has the Minds repository (https://docs.docker.com/docker-for-windows/#file-sharing).
 
 ## Installing Minds
+
+First, clone the main repository, and its submodules using one of the below commands.
+
+```sh
+### SSH Clone
+git clone --recurse-submodules --remote-submodules git@gitlab.com:minds/minds.git
+
+### HTTP Clone
+git clone --recurse-submodules --remote-submodules https://gitlab.com/minds/minds.git
+```
+
+
 > **Important!**
 >
 > This operation will wipe out all your current data in the Minds containers.
