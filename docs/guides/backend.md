@@ -64,7 +64,7 @@ docker-compose exec php-fpm php /var/www/Minds/engine/cli.php QueueRunner run --
 
 Minds uses [phpspec](https://www.phpspec.net/en/stable/) and encourages test-first development.
 
-> See the [backend tests walk-through](../walk-throughs/backend-tests) for detailed info on writing and running tests
+> See the [backend tests walk-through](../../walk-throughs/backend-tests) for detailed info on writing and running tests
 
 ## Controllers
 
