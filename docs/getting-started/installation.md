@@ -50,7 +50,7 @@ This is an optional step, but all examples in this document will be using the al
 ### Linux/macOS
 Add to your ~/.bashrc (or ~/.zshrc) file
 ```sh
-export $MINDSROOT=/path/to/minds
+export MINDSROOT=/path/to/minds
 
 alias minds=$MINDSROOT/local/local
 alias minds-front-build=$MINDSROOT/local/front-build
@@ -90,6 +90,18 @@ After saving the profile script, restart your terminal windows.
 - Enable Shared Drives availability to the drive that has the Minds repository (https://docs.docker.com/docker-for-windows/#file-sharing).
 
 ## Installing Minds
+
+First, clone the main repository, and its submodules using one of the below commands.
+
+```sh
+### SSH Clone
+git clone --recurse-submodules --remote-submodules git@gitlab.com:minds/minds.git
+
+### HTTP Clone
+git clone --recurse-submodules --remote-submodules https://gitlab.com/minds/minds.git
+```
+
+
 > **Important!**
 >
 > This operation will wipe out all your current data in the Minds containers.
@@ -99,6 +111,26 @@ After saving the profile script, restart your terminal windows.
 Run
 ```sh
 minds install
+```
+
+You can alternatively choose to install with the no-front option, which means that you will have to install and run the front-end manually - this may be preferred for development purposes.
+
+```sh
+# Install
+minds install --no-front
+
+# nav into front directory and install.
+cd front
+npm i
+
+# Manually serve the project
+NODE_OPTIONS=--max_old_space_size=4096 ENGINE_PORT=8080 npm run serve:dev -- --live-reload=false
+```
+
+Optionally, to rebuild scss on change, in another shell, you can run:
+
+```sh
+npx sane "npm run preserve:dev" src --changes-only --glob="**/*.scss"
 ```
 
 ### Troubleshooting
