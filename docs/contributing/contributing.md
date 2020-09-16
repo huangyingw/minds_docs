@@ -37,5 +37,4 @@ Looking for a project to get started? Check out:
 - [Bounties](https://gitlab.com/groups/minds/-/issues?label_name%5B%5D=Bounty)
 - [Community tasks](https://gitlab.com/groups/minds/-/issues?label_name%5B%5D=T+-+Community)
 - [Nice to have](https://gitlab.com/groups/minds/-/issues?scope=all&utf8=%E2%9C%93&state=opened&label_name[]=Priority%3A%3A3%20-%20Nice%20to%20have)
-- [Localization/translations - desktop](https://poeditor.com/join/project/A45VLCwD0Y)
-- [Localization/translations - mobile app](https://poeditor.com/join/project/QhGWcF9w8T)
+- [Localization/translations](https://translate.minds.com/)
