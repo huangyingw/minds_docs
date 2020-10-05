@@ -156,6 +156,34 @@ _All_ colors should be defined using the `m-theme` mixin:
 
 If something is black or white and you want it to _not_ change when the theme is changed (e.g. you want an overlay modal background to always be black, regardless of theme), use `$m-black-always` or `$m-white-always`.
 
+### Z-index
+
+We use two tiers of z-index systems:
+
+#### 1) GLOBAL
+_Used for components whose layers are adjacent to and/or interact with many other structural items that exist outside the component itself (**e.g. navigation, topbar, modals, tooltips**)_ 
+
+
+  - Example usage: 
+```scss
+.m-announcement {
+       @include z-index(announcement);
+       position: absolute;
+ }
+```
+  - Map items, values, definitions and detailed guidance for global z-index are located in the `z-index.scss` file. 
+  - Most of the global structural layers are already be defined and only rarely should the z-index map be changed.
+
+
+#### 2) **LOCAL** 
+_Used for defining layers that interact within a component. (**e.g. the fade out overlay in the read-more component, a floating close button within an overlay modal**)_
+  - Local z-index layers are defined within the given component's scss file. 
+  - Start by creating a new stacking context on your component's host element or one of its children. A new stacking context means that all of the z-index values within your component will relate only to one another, not to the rest of the components that might be on the page at the same time. **Be aware that the local context will override global z-index values of child components**, so try to keep a narrow scope by creating the new stacking context on the most nested element possible. 
+  - To create a new stacking context:
+    - 1: Define a z-index. Keep it as low as possible (no higher than 10). For example, `z-index: 1`.
+    - 2: Define an attribute that creates a stacking context. Technically, there are [several different attributes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context) that can be used to create a new stacking context, but for clarity and sanity, we will use `position: relative` OR any other position value besides `static`.  If you _must_ use static positioning, you may use one of the alternative attributes (e.g. `transform: translateZ(0)` or `opacity: .99`), but be sure leave a comment nearby so other developers know what's going on. 
+
+
 ## SSR
 
 ### 101 Guide
