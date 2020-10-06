@@ -143,6 +143,10 @@ Git might corrupted Docker container scripts line endings. [Read this](#windows-
 
 Close any application that might be actively watching the folder, such as VSCode, TortoiseGit, etc. If it still fails, reboot your computer to release any rogue lock.
 
+#### Operation timed out while creating indices, waiting for ElasticSearch to come online in Windows
+
+Try disabling "Use the WSL 2 based engine" option in Docker Desktop.
+
 ## Running
 
 ### Starting the containers
