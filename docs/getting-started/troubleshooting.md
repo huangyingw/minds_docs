@@ -2,10 +2,21 @@
 id: troubleshooting
 title: Troubleshooting
 ---
+## Turn it off and on again
+If you're not sure why things aren't working, try these first:
+
+#### Is everything running?
+`minds up`
+
+#### Needs a kick?
+`minds restart`
+
+#### When in doubt, re-run the local stack installation.
+`minds install`
 
 ## Nuclear Option
 
-When things aren't running smoothly in your Dockerized environment, sometimes it's best to start from scratch. Follow these steps to **completely delete your data** and start fresh:
+When things aren't running smoothly in your Dockerized environment and the steps above haven't fixed the problem, sometimes it's best to start from scratch. Follow these steps to **completely delete your data** and start fresh:
 
 ```
 # Remove your settings file
