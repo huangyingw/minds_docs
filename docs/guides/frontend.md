@@ -255,3 +255,29 @@ For example, do not render comments for blogs server side, allow for the browser
 #### Local storage vs Cookies
 
 The server is not able to read the local storage from the browser. If a shared state is required then the `CookieService` should be used. Sensitive data is prohibited.
+
+## Embed Mode
+
+Minds video player can be embedded into other websites using an `iframe`. The video player is the same player as the one that is used in the App. However, in the embed mode only what is strictly necessary will be included. Anything that needs to be rendered without the wider angular app, should be loaded in the embed mode.
+
+### How it works
+
+This is achieved by creating a new "entrypoint", or in angular terms, a new "project" in `angular.json`, which will enter from `src/app/modules/embed/main.ts` and add any library or module on its way in a bundle separate from the app's bundle stored in `dist/embed`. The app will then be served with `server.ts`, and the bundles and static files will be served with NGINX with the `/embed-static` alias.
+
+### How to build/run/test
+
+#### Production
+
+On production, the embed module will be served and server-side-rendered with `server.ts`
+
+1. `npm run build:embed`
+2. `minds-ssr-build`
+3. `minds-ssr-serve`
+
+#### Developement
+
+On developement, angular can serve the module like this:
+
+`npm run serve:embed:dev`
+
+Now you can see embedded videos in a url like `https://localhost:4200/embed/${VIDEO_GUID}`
