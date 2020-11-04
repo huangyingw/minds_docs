@@ -18,6 +18,7 @@
     "Walk-throughs": [
       "walk-throughs/backend-modules",
       "walk-throughs/backend-tests",
+      "walk-throughs/block",
       "walk-throughs/frontend-tests",
       "walk-throughs/emails",
       "walk-throughs/feature-flags",
