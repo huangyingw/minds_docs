@@ -14,7 +14,7 @@ The source code can be found in the [Front repository](https://gitlab.com/minds/
 ### Development
 
 ```console
-npm run server:dev
+NODE_OPTIONS=--max_old_space_size=4096 npm run serve:dev
 ```
 
 Keep this running while you are working so your changes will automatically be reflected when you refresh your browser.
