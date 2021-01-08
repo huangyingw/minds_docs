@@ -40,6 +40,10 @@ const siteConfig = {
       href: 'https://gitlab.com/minds'
     },
     {
+      label: 'Bounties',
+      href: 'https://gitcoin.co/minds/'
+    },
+    {
       label: 'Minds.com',
       href: 'https://minds.com/'
     }
