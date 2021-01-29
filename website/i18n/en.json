@@ -42,6 +42,9 @@
       "guides/mobile": {
         "title": "Mobile"
       },
+      "guides/share-to-minds": {
+        "title": "Share to Minds"
+      },
       "handbook/bug-reporting": {
         "title": "Bug reporting"
       },

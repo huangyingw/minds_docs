@@ -12,7 +12,8 @@
       "guides/mobile",
       "guides/deployment",
       "guides/documentation",
-      "guides/git"
+      "guides/git",
+      "guides/share-to-minds"
     ],
     "Contributing": ["contributing/contributing", "contributing/license"],
     "Walk-throughs": [
