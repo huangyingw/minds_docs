@@ -2,9 +2,6 @@
 id: installation
 title: Installation
 ---
-
-Get started by creating a branch (dev team) or fork (community members) of the [Minds repository](https://gitlab.com/Minds/minds).
-
 ## Development system requirements
 
 - Any modern x86_64 multi-core CPU that supports virtualization.
@@ -24,6 +21,7 @@ _**Linux users:** To get Elasticsearch 6 to run, you must make a settings change
 - Docker 18 or higher, with docker-compose
 - Node.js 10.x or higher, with npm and npx
 - Port 8080 open
+- Port 9200 internally visible.
 
 #### Extra requirements for Windows
 - Windows 10 Pro with Hyper-V enabled (for Docker)
@@ -107,6 +105,8 @@ git clone --recurse-submodules --remote-submodules https://gitlab.com/minds/mind
 > This operation will wipe out all your current data in the Minds containers.
 >
 > Ensure you run `docker-compose down` to dispose old Docker containers **before updating `master` or checking out this branch**.
+>
+> Additionally, ensure that you are not running with sudo on unix based systems.
 
 Run
 ```sh
