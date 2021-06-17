@@ -93,6 +93,9 @@
       "walk-throughs/mobile-locales": {
         "title": "Mobile Internationalization"
       },
+      "walk-throughs/mobile-styling": {
+        "title": "Mobile Styles and Themes"
+      },
       "walk-throughs/notifications": {
         "title": "Notifications"
       },
