@@ -29,7 +29,8 @@
       "walk-throughs/notifications",
       "walk-throughs/postman",
       "walk-throughs/mobile-locales",
-      "walk-throughs/mobile-gitflow"
+      "walk-throughs/mobile-gitflow",
+      "walk-throughs/mobile-styling"
     ],
     "Handbook": [
       "handbook/how-we-work",
