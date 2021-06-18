@@ -42,6 +42,9 @@
       "guides/mobile": {
         "title": "Mobile"
       },
+      "guides/share-to-minds": {
+        "title": "Share to Minds"
+      },
       "handbook/bug-reporting": {
         "title": "Bug reporting"
       },
@@ -69,6 +72,9 @@
       "walk-throughs/emails": {
         "title": "Sending emails"
       },
+      "walk-throughs/event-streams": {
+        "title": "Event Streams"
+      },
       "walk-throughs/feature-flags": {
         "title": "Feature flags"
       },
@@ -87,6 +93,9 @@
       "walk-throughs/mobile-locales": {
         "title": "Mobile Internationalization"
       },
+      "walk-throughs/mobile-styling": {
+        "title": "Mobile Styles and Themes"
+      },
       "walk-throughs/notifications": {
         "title": "Notifications"
       },
@@ -97,6 +106,7 @@
     "links": {
       "Docs": "Docs",
       "Code": "Code",
+      "Bounties": "Bounties",
       "Minds.com": "Minds.com"
     },
     "categories": {

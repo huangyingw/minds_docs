@@ -21,8 +21,8 @@ Please report all security issues to [security@minds.com](mailto:security@minds.
 
 ## License
 
-[AGPLv3](https://www.minds.org/docs/license.html). Please see the license file of each repository.
+[AGPLv3](https://developers.minds.com/docs/contributing/license/). Please see the license file of each repository.
 
-**_Copyright Minds 2012 - 2019_**
+**_Copyright Minds 2012 - 2020_**
 
-Copyright for portions of Minds are held by [Elgg](http://elgg.org), 2013 as part of the [Elgg](http://elgg.org) project. All other copyright for Minds is held by Minds, Inc.
+Copyright for Minds is held by Minds, Inc., with the exception of a small subset that is held by [Elgg](http://elgg.org), 2013 as part of the [Elgg](http://elgg.org) project.

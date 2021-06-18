@@ -4,7 +4,7 @@ stages:
 
 build:
   stage: build
-  image: circleci/node:8-browsers
+  image: circleci/node:10-browsers
   script:
     - cd website
     - yarn

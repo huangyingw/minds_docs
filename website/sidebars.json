@@ -12,13 +12,15 @@
       "guides/mobile",
       "guides/deployment",
       "guides/documentation",
-      "guides/git"
+      "guides/git",
+      "guides/share-to-minds"
     ],
     "Contributing": ["contributing/contributing", "contributing/license"],
     "Walk-throughs": [
       "walk-throughs/backend-modules",
       "walk-throughs/backend-tests",
       "walk-throughs/block",
+      "walk-throughs/event-streams",
       "walk-throughs/frontend-tests",
       "walk-throughs/emails",
       "walk-throughs/feature-flags",
@@ -27,7 +29,8 @@
       "walk-throughs/notifications",
       "walk-throughs/postman",
       "walk-throughs/mobile-locales",
-      "walk-throughs/mobile-gitflow"
+      "walk-throughs/mobile-gitflow",
+      "walk-throughs/mobile-styling"
     ],
     "Handbook": [
       "handbook/how-we-work",
